@@ -1,0 +1,89 @@
+<resources>
+    <!--<item name="android:fontFamily">@font/droid_serif</item>-->
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="coordinatorLayoutStyle">@style/Widget.Design.CoordinatorLayout</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/helveticaneue</item>
+    </style>
+
+    <style name="MainButtonFontStyle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">7sp</item>
+    </style>
+
+    <!--<item name="android:textSize">12sp</item>-->
+    <style name="ButtonFontStyle">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">7sp</item>
+    </style>
+
+    <style name="ResetButtonFontStyle">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/bg_row_background</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="slidetodeleteFontStyle">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/bg_row_background</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+    <style name="cartlistmenu">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">viewStart</item>
+
+    </style>
+    <!--<item name="android:textSize">12sp</item>-->
+    <style name="cartlist">
+        <item name="android:textColor">@color/item_name</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:paddingStart">@dimen/cartlist_padding_start</item>
+    </style>
+    <!--<item name="android:textSize">12sp</item>-->
+    <!---->
+
+
+    <style name="itemfont">
+        <item name="android:textSize">8sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+        <!--<item name="android:background">@color/white80</item>-->
+    </style>
+
+    <style name="MySerifBold" >
+        <item name="android:textStyle">bold</item>
+        <item name="android:typeface">serif</item>
+
+    </style>
+
+    <style name="sharebutton" parent="AppTheme">
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
+
+
+
+
+    <!-- <style name="AppTheme.NoActionBar">
+         <item name="windowActionBar">false</item>
+         <item name="windowNoTitle">true</item>
+     </style>-->
+
+    <style name="AppTheme.AppBarOverlay" parent="AppTheme" />
+
+    <style name="AppTheme.PopupOverlay" parent="AppTheme" />
+
+
+
+</resources>

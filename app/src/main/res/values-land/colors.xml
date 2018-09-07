@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="textColorPrimary">#FFFFFF</color>
+
+    <color name="GradientCenter">#ffffff</color>
+    <color name="GradientStart">#449DEF</color>
+    <color name="GradientEnd">#579fe2</color>
+    <color name="GradientStartS">#ffe082</color>
+    <color name="GradientEndS">#fde8a9</color>
+    <color name="strokeMain">#000000</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="white80">#FFffffff</color>
+    <color name="title">#222222</color>
+
+
+    <color name="bg_row_background">#fa315b</color>
+    <color name="item_name">#535353</color>
+    <color name="description">#a9a9a9</color>
+
+</resources>
+
+
+
+<!--
+    Use the below code for black:
+
+<color name="black">#000000</color>
+    Now if I want to use opacity then you can use the below code:
+
+<color name="black">#99000000</color>
+    And below for opacity code:
+
+    Hex Opacity Values
+
+    100% — FF
+    95% — F2
+    90% — E6
+    85% — D9
+    80% — CC
+    75% — BF
+    70% — B3
+    65% — A6
+    60% — 99
+    55% — 8C
+    50% — 80
+    45% — 73
+    40% — 66
+    35% — 59
+    30% — 4D
+    25% — 40
+    20% — 33
+    15% — 26
+    10% — 1A
+    5% — 0D
+    0% — 00-->

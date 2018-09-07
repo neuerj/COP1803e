@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin_start">10dp</dimen>
+    <dimen name="activity_horizontal_margin_end">40dp</dimen>
+    <dimen name="activity_vertical_margin">46dp</dimen>
+    <dimen name="cartlist_margin">30dp</dimen>
+    <dimen name="cartlist_width">120dp</dimen>
+    <dimen name="cartlist_margin_start">4dp</dimen>
+    <dimen name="cartlist_margin_top">10dp</dimen>
+
+    <dimen name="cartlist_padding_start">80dp</dimen>
+    <dimen name="cartlist_PercentHeight">0.4</dimen>
+
+    <dimen name="fab_margin">16dp</dimen>
+
+    //recyclerviews
+    <dimen name="row_padding_vertical">1dp</dimen>
+    <dimen name="recylerMargin">4dp</dimen>
+    <dimen name="padleft">10dp</dimen>
+    <dimen name="padright">10dp</dimen>
+
+    //Reset cop button
+    <dimen name="layoutwidthresetbutton">45dp</dimen>
+    <dimen name="layoutheightresetbutton">40dp</dimen>
+
+    //small cop button
+    <dimen name="layoutwidthcopbutton">38dp</dimen>
+    <dimen name="layoutheightcopbutton">38dp</dimen>
+    <dimen name="paddingleftcopbutton">1dp</dimen>
+    <dimen name="paddingrightcopbutton">1dp</dimen>
+
+    //medium cop button
+    <dimen name="layoutwidthMedcopbutton">62dp</dimen>
+    <dimen name="layoutheightMedcopbutton">62dp</dimen>
+
+
+    //main cop button/ring
+    <dimen name="WidthMaincopbutton">70dp</dimen>
+    <dimen name="HeightMaincopbutton">70dp</dimen>
+    <dimen name="innerRadiusMaincopbutton">42dp</dimen>
+    <dimen name="thicknessMaincopbutton">15dp</dimen>
+    <dimen name="layoutwidthMaincopbutton">70dp</dimen>
+    <dimen name="layoutheightMaincopbutton">70dp</dimen>
+
+
+    //button row bias
+    <dimen name="bias1c">.15</dimen>
+    <dimen name="bias2c">.4</dimen>
+    <dimen name="bias3c">.6</dimen>
+    <dimen name="bias4c">.85</dimen>
+
+    <dimen name="activity_padding_horizontal">16dp</dimen>
+    <dimen name="padd_5">5dp</dimen>
+    <dimen name="padd_10">10dp</dimen>
+    <dimen name="padd_20"></dimen>
+
+    <dimen name="ic_delete">20dp</dimen>
+    <dimen name="thumbnail">90dp</dimen>
+</resources>

@@ -1,0 +1,72 @@
+<resources>
+    <!--column 2 strings-->
+    <string name="app_name">CenterOfThePlate</string>
+    <string name="x11MainCOPtext">"The \nCenter of \nthe Plate"</string>
+    <string name="x21BreadingCrustCoatingsWraps">"Breading Crust Coatings Wraps"</string>
+    <string name="x22CuttingandManipulation">"Cutting and Manipulation"</string>
+    <string name="x23DryRubsandStuffings">"Dry Rubs and Stuffings"</string>
+    <string name="x24HerbandSpicePastes">"Herb and Spice Pastes"</string>
+    <string name="x25MarinadesandBrines">"Marinades and Brines"</string>
+    <string name="x26SpicesandSpiceCrusts">"Spices and Spice Crusts"</string>
+    <string name="x27Balance">"Balance"</string>
+    <string name="x31CookingTechniques">"Cooking Techniques"</string>
+    <string name="x41SaladsRelishes">"Salads Releshes"</string>
+    <string name="x42StarchesGrains">"Starches and Grains"</string>
+    <string name="x43Garnishes">"Garnishes"</string>
+    <string name="x44SaucesSalsa">"Sauces Salsas"</string>
+    <string name="x45VegetablesFruit">"Vegetables Fruit"</string>
+    <string name="Beef">Beef</string>
+
+    <string name="x0">Balance</string>
+    <string name="x1">SWEET</string>
+    <string name="x2">SOUR</string>
+    <string name="x3">BITTER</string>
+    <string name="x4">SALTY</string>
+    <string name="x5">UMAMI \nSAVORY</string>
+    <string name="x6">SPICY</string>
+    <string name="x7">COLOR \nPIGMENT</string>
+    <string name="x8">SHAPE</string>
+    <string name="x9">AROMATIC</string>
+    <string name="x10">HOT \nWARM \nCOLD</string>
+    <string name="x111">TENDER \nSOFT</string>
+    <string name="x12">CRISPY \nCRUNCHY</string>
+
+    <string name="BalanceTxt">Balance is essential to give a contrasting experience to the diner.  Keeping the surrounding collection of balance varialbes in mind will help you to create diversified meals that will please you clientele.  New recipes that have a balance of the different aesthetics of food is very essential.  Good solid cooking technique with a great deal of emphasis on developing flavor and texture contrasts can make a dish very successful.</string>
+    <string name="SweetTxt">Sweet refers to flavors coming from the carbohydrate compound family, or simple and complex carbohydrate molecules</string>
+    <string name="SourTxt">Sour refers to taste compounds or flavors that have an acidic or tart characteristic</string>
+    <string name="BitterTxt">Bitter refers to alkaline compounds or flavors that provide bite, harshness, acrid or pungent reactions on the palate</string>
+    <string name="SaltyTxt">Salty refers to taste compounds that taste similar to, or actually is sodium chloride</string>
+    <string name="UmamiTxt">Umami or Savory refers to brothy or meaty taste sensation and is commonly added in the form of monosodium glutamate (MSG)</string>
+    <string name="SpicyTxt">Spicy refers to chemical heat and flavor of the chili or capsicum family</string>
+    <string name="ColorTxt">Color or Pigment refers to changes the reflected or transmitted light as the result of wavelength-selective absorption of the food being seen</string>
+    <string name="ShapeTxt">Shape refers to the physical shape or form of the food</string>
+    <string name="AromaticTxt">Aromatic refers to the chemical compounds that transmit through the air to our olfactory system in our nose or simply the smell of the food</string>
+    <string name="HotTxt">Hot, Warm and Cold refer to the temperature of the food with hot generally above 100°F (38°C) and cold under 40°F (4°C)</string>
+    <string name="TenderTxt">Tender or Soft refer to how easily food mastication or chewing occurs during food consumption</string>
+    <string name="CrispyTxt">Crispy or Crunchy refer to how difficult food mastication or chewing occurs during food consumption</string>
+
+
+    <string name="Resetbutton">"Reset"</string>
+
+
+<string name="subtext">
+    <font size="5">Text in bigger font size 5</font>
+</string>
+
+
+
+
+    <string name="action_settings">Settings</string>
+    <string name="my_cart">Center of the Plate</string>
+    <string name="delete">DELETE</string>
+    <string name="deleteIcon">DELETE</string>
+    <string name="slidedelete">Swipe \u003c\u002d\u002d\u002d\u002d to delete </string>
+
+    ///TCOTP Menu
+    <string name="kCal"><u>kCal</u></string>
+    <string name="Fat"><u>Fat</u></string>
+    <string name="Cho"><u>Today's Special</u></string>
+    <string name="Pro"><u>Pro</u></string>
+    <string name="Today_Special"><u>Today's Special</u></string>
+    <string name="Balance" />
+</resources>

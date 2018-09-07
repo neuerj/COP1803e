@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<com.example.android.cop1803.LayoutCustom xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mylayoutcustom"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    tools:context="com.example.android.cop1803.MainActivity"
+    android:fitsSystemWindows="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:layout_editor_absoluteY="73dp">
+
+    <!--    <com.example.android.cop1803.LineView
+        android:id="@+id/LineView"
+        android:layout_width="match_parent"
+        android:layout_height="690dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteY="13dp" />-->
+    <!--android:background="@color/GradientStart"-->
+
+    <!--    <com.example.android.cop1803.MyRecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/recylerMargin"
+            android:background="@color/white80"
+            android:elevation="2dp"
+            android:scrollbars="vertical"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/recycler_view2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_default="wrap" />
+
+
+
+        <com.example.android.cop1803.MyRecyclerView
+            android:id="@+id/recycler_view2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white80"
+            android:elevation="2dp"
+            android:scrollbars="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/recycler_view"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintWidth_default="wrap" />-->
+
+
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/MainCOPbtn"
+        android:layout_width="@dimen/WidthMaincopbutton"
+        android:layout_height="@dimen/HeightMaincopbutton"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/copbuttonmaineffect"
+        android:padding="@dimen/padd_10"
+        android:text="@string/x11MainCOPtext"
+        android:textAppearance="@style/MainButtonFontStyle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintVertical_bias=".6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+    <!--app:layout_constraintHorizontal_bias="0.027"-->
+    <!--android:paddingLeft="14dp"-->
+    <!--android:paddingRight="14dp"-->
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x21"
+        android:layout_width="@dimen/layoutwidthcopbutton"
+        android:layout_height="@dimen/layoutheightcopbutton"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@drawable/copbutton"
+        android:paddingLeft="@dimen/paddingleftcopbutton"
+        android:paddingRight="@dimen/paddingrightcopbutton"
+        android:text="@string/x21BreadingCrustCoatingsWraps"
+        android:textAppearance="@style/ButtonFontStyle"
+
+        app:layout_constraintBottom_toTopOf="@+id/x22"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.42"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread" />
+
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x22"
+        android:layout_width="@dimen/layoutwidthcopbutton"
+        android:layout_height="@dimen/layoutheightcopbutton"
+        android:background="@drawable/copbutton"
+        android:paddingLeft="@dimen/paddingleftcopbutton"
+        android:paddingRight="@dimen/paddingrightcopbutton"
+        android:text="@string/x22CuttingandManipulation"
+        android:textAppearance="@style/ButtonFontStyle"
+        app:layout_constraintBottom_toTopOf="@+id/x23"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.42"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/x21" />
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x23"
+        android:layout_width="@dimen/layoutwidthcopbutton"
+        android:layout_height="@dimen/layoutheightcopbutton"
+        android:background="@drawable/copbutton"
+        android:paddingLeft="@dimen/paddingleftcopbutton"
+        android:paddingRight="@dimen/paddingrightcopbutton"
+        android:text="@string/x23DryRubsandStuffings"
+        android:textAppearance="@style/ButtonFontStyle"
+        app:layout_constraintBottom_toTopOf="@id/x24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.42"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/x22" />
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x24"
+        android:layout_width="@dimen/layoutwidthcopbutton"
+        android:layout_height="@dimen/layoutheightcopbutton"
+        android:background="@drawable/copbutton"
+        android:paddingLeft="@dimen/paddingleftcopbutton"
+        android:paddingRight="@dimen/paddingrightcopbutton"
+        android:text="@string/x24HerbandSpicePastes"
+        android:textAppearance="@style/ButtonFontStyle"
+        app:layout_constraintBottom_toTopOf="@id/x25"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.42"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/x23" />
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x25"
+        android:layout_width="@dimen/layoutwidthcopbutton"
+        android:layout_height="@dimen/layoutheightcopbutton"
+        android:background="@drawable/copbutton"
+        android:paddingLeft="@dimen/paddingleftcopbutton"
+        android:paddingRight="@dimen/paddingrightcopbutton"
+        android:text="@string/x25MarinadesandBrines"
+        android:textAppearance="@style/ButtonFontStyle"
+        app:layout_constraintBottom_toTopOf="@id/x26"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.42"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/x24" />
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x26"
+        android:layout_width="@dimen/layoutwidthcopbutton"
+        android:layout_height="@dimen/layoutheightcopbutton"
+        android:background="@drawable/copbutton"
+        android:paddingLeft="@dimen/paddingleftcopbutton"
+        android:paddingRight="@dimen/paddingrightcopbutton"
+        android:text="@string/x26SpicesandSpiceCrusts"
+        android:textAppearance="@style/ButtonFontStyle"
+        app:layout_constraintBottom_toTopOf="@id/x27"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.42"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/x25" />
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x27"
+        android:layout_width="@dimen/layoutwidthcopbutton"
+        android:layout_height="@dimen/layoutheightcopbutton"
+        android:background="@drawable/copbutton"
+        android:paddingLeft="@dimen/paddingleftcopbutton"
+        android:paddingRight="@dimen/paddingrightcopbutton"
+        android:text="@string/x27Balance"
+        android:textAppearance="@style/ButtonFontStyle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.42"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/x26" />
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x31"
+        android:layout_width="@dimen/layoutwidthMedcopbutton"
+        android:layout_height="@dimen/layoutheightMedcopbutton"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@drawable/copbuttonsecond"
+        android:paddingLeft="@dimen/paddingleftcopbutton"
+        android:paddingRight="@dimen/paddingrightcopbutton"
+        android:text="@string/x31CookingTechniques"
+        android:textAppearance="@style/ButtonFontStyle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.64"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x41"
+        android:layout_width="@dimen/layoutwidthcopbutton"
+        android:layout_height="@dimen/layoutheightcopbutton"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@drawable/copbuttonsecond"
+        android:paddingLeft="@dimen/paddingleftcopbutton"
+        android:paddingRight="@dimen/paddingrightcopbutton"
+        android:text="@string/x41SaladsRelishes"
+        android:textAppearance="@style/ButtonFontStyle"
+        app:layout_constraintBottom_toTopOf="@id/x42"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread" />
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x42"
+        android:layout_width="@dimen/layoutwidthcopbutton"
+        android:layout_height="@dimen/layoutheightcopbutton"
+        android:background="@drawable/copbutton"
+        android:paddingLeft="@dimen/paddingleftcopbutton"
+        android:paddingRight="@dimen/paddingrightcopbutton"
+        android:text="@string/x42StarchesGrains"
+        android:textAppearance="@style/ButtonFontStyle"
+        app:layout_constraintBottom_toTopOf="@+id/x43"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/x41" />
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x43"
+        android:layout_width="@dimen/layoutwidthcopbutton"
+        android:layout_height="@dimen/layoutheightcopbutton"
+        android:background="@drawable/copbutton"
+        android:paddingLeft="@dimen/paddingleftcopbutton"
+        android:paddingRight="@dimen/paddingrightcopbutton"
+        android:text="@string/x43Garnishes"
+        android:textAppearance="@style/ButtonFontStyle"
+        app:layout_constraintBottom_toTopOf="@id/x44"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/x42" />
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x44"
+        android:layout_width="@dimen/layoutwidthcopbutton"
+        android:layout_height="@dimen/layoutheightcopbutton"
+        android:background="@drawable/copbutton"
+        android:paddingLeft="@dimen/paddingleftcopbutton"
+        android:paddingRight="@dimen/paddingrightcopbutton"
+        android:text="@string/x44SaucesSalsa"
+        android:textAppearance="@style/ButtonFontStyle"
+        app:layout_constraintBottom_toTopOf="@id/x45"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/x43" />
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x45"
+        android:layout_width="@dimen/layoutwidthcopbutton"
+        android:layout_height="@dimen/layoutheightcopbutton"
+        android:background="@drawable/copbutton"
+        android:paddingLeft="@dimen/paddingleftcopbutton"
+        android:paddingRight="@dimen/paddingrightcopbutton"
+        android:text="@string/x45VegetablesFruit"
+        android:textAppearance="@style/ButtonFontStyle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/x44" />
+
+
+   <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinator_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:fitsSystemWindows="true"
+        android:padding="@dimen/padd_20"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="com.example.android.cop1803.MainActivity"
+        >
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar_main"
+                app:theme="@style/sharebutton"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+        </android.support.design.widget.AppBarLayout>
+
+        <include
+            android:id="@+id/cartlist"
+            layout="@layout/content_main"
+
+            />
+
+
+    </android.support.design.widget.CoordinatorLayout>
+
+
+    <com.example.android.cop1803.MyRecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent=".35"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/recylerMargin"
+        android:paddingEnd="@dimen/padright"
+        android:background="@color/white80"
+        android:clipToPadding="false"
+        android:elevation="2dp"
+        android:scrollbars="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/recycler_view2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
+
+    <com.example.android.cop1803.MyRecyclerView
+        android:id="@+id/recycler_view2"
+
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent=".35"
+        android:layout_height="wrap_content"
+        android:background="@color/white80"
+        android:paddingEnd="@dimen/padright"
+        android:clipToPadding="false"
+        android:elevation="2dp"
+        android:scrollbars="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@+id/recycler_view"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.22770399" />
+
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineView1021"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineView1022"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineView1023"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineView1024"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineView1025"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineView1026"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineView1027"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineView2131"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineView2231"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineView2331"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineView2431"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineView2531"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineView2631"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineView2731"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineView3141"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineView3142"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineView3143"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineView3144"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineView3145"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</com.example.android.cop1803.LayoutCustom>
+
+    <!-- data.add(new CopListdata("Beef", "0", "0", "0", "0", R.drawable.ic_keyboard_arrow_right_black_24dp));
+     data.add(new CopListdata("Chicken", "0", "0", "0", "0", R.drawable.ic_keyboard_arrow_right_black_24dp));
+     data.add(new CopListdata("Game", "0", "0", "0", "0", R.drawable.ic_keyboard_arrow_right_black_24dp));
+     data.add(new CopListdata("Goose and Gosling", "0", "0", "0", "0", R.drawable.mic_done_black_24dp));
+     data.add(new CopListdata("Guinea Hen Fowl", "0", "0", "0", "0", R.drawable.mic_done_black_24dp));
+     data.add(new CopListdata("Lamb", "0", "0", "0", "0", R.drawable.ic_keyboard_arrow_right_black_24dp));
+     data.add(new CopListdata("Organ Meats - Offal Meats", "0", "0", "0", "0", R.drawable.ic_keyboard_arrow_right_black_24dp))-->

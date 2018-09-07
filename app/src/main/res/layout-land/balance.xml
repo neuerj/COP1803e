@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mybalancelayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:tag="myfragmenttag"
+
+    >
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="1.2"
+        android:scaleY="1.2"
+        android:text="@string/x0"
+        android:textAppearance="@style/ButtonFontStylebalance"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:stateListAnimator="@null"
+        android:elevation="6dp"
+        android:translationZ="10dp"
+        android:background="@drawable/balancecenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/x1"
+        android:textAppearance="@style/ButtonFontStylebalance"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="6dp"
+        android:translationZ="10dp"
+        android:background="@drawable/balancecenter"
+        app:layout_constraintCircle="@+id/x0"
+        app:layout_constraintCircleRadius="@dimen/BalanceCircleConstraintRadius"
+        app:layout_constraintCircleAngle="15"
+
+        />
+
+    <com.example.android.cop1803.MyViewbutton
+
+        android:id="@+id/x2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/x2"
+        android:textAppearance="@style/ButtonFontStylebalance"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="6dp"
+        android:translationZ="10dp"
+        android:background="@drawable/balancecenter"
+        app:layout_constraintCircle="@+id/x0"
+        app:layout_constraintCircleRadius="@dimen/BalanceCircleConstraintRadius"
+        app:layout_constraintCircleAngle="45"
+        />
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/x3"
+        android:textAppearance="@style/ButtonFontStylebalance"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="6dp"
+        android:translationZ="10dp"
+        android:background="@drawable/balancecenter"
+        app:layout_constraintCircle="@+id/x0"
+        app:layout_constraintCircleRadius="@dimen/BalanceCircleConstraintRadius"
+        app:layout_constraintCircleAngle="75" />
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/x4"
+        android:textAppearance="@style/ButtonFontStylebalance"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="6dp"
+        android:translationZ="10dp"
+        android:background="@drawable/balancecenter"
+        app:layout_constraintCircle="@+id/x0"
+        app:layout_constraintCircleRadius="@dimen/BalanceCircleConstraintRadius"
+        app:layout_constraintCircleAngle="105" />
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/x5"
+        android:textAppearance="@style/ButtonFontStylebalance"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="6dp"
+        android:translationZ="10dp"
+        android:background="@drawable/balancecenter"
+        app:layout_constraintCircle="@+id/x0"
+        app:layout_constraintCircleRadius="@dimen/BalanceCircleConstraintRadius"
+        app:layout_constraintCircleAngle="135" />
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/x6"
+        android:textAppearance="@style/ButtonFontStylebalance"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="6dp"
+        android:translationZ="10dp"
+        android:background="@drawable/balancecenter"
+        app:layout_constraintCircle="@+id/x0"
+        app:layout_constraintCircleRadius="@dimen/BalanceCircleConstraintRadius"
+        app:layout_constraintCircleAngle="165" />
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/x7"
+        android:textAppearance="@style/ButtonFontStylebalance"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="6dp"
+        android:translationZ="10dp"
+        android:background="@drawable/balancecenter"
+        app:layout_constraintCircle="@+id/x0"
+        app:layout_constraintCircleRadius="@dimen/BalanceCircleConstraintRadius"
+        app:layout_constraintCircleAngle="195" />
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/x8"
+        android:textAppearance="@style/ButtonFontStylebalance"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="6dp"
+        android:translationZ="10dp"
+        android:background="@drawable/balancecenter"
+        app:layout_constraintCircle="@+id/x0"
+        app:layout_constraintCircleRadius="@dimen/BalanceCircleConstraintRadius"
+        app:layout_constraintCircleAngle="225" />
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/x9"
+        android:textAppearance="@style/ButtonFontStylebalance"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="6dp"
+        android:translationZ="10dp"
+        android:background="@drawable/balancecenter"
+        app:layout_constraintCircle="@+id/x0"
+        app:layout_constraintCircleRadius="@dimen/BalanceCircleConstraintRadius"
+        app:layout_constraintCircleAngle="255" />
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/x10"
+        android:textAppearance="@style/ButtonFontStylebalance"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="6dp"
+        android:translationZ="10dp"
+        android:background="@drawable/balancecenter"
+        app:layout_constraintCircle="@+id/x0"
+        app:layout_constraintCircleRadius="@dimen/BalanceCircleConstraintRadius"
+        app:layout_constraintCircleAngle="285" />
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/x111"
+        android:textAppearance="@style/ButtonFontStylebalance"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="6dp"
+        android:translationZ="10dp"
+        android:background="@drawable/balancecenter"
+        app:layout_constraintCircle="@+id/x0"
+        app:layout_constraintCircleRadius="@dimen/BalanceCircleConstraintRadius"
+        app:layout_constraintCircleAngle="315" />
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/x12"
+        android:textAppearance="@style/ButtonFontStylebalance"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="6dp"
+        android:translationZ="10dp"
+        android:background="@drawable/balancecenter"
+        app:layout_constraintCircle="@+id/x0"
+        app:layout_constraintCircleRadius="@dimen/BalanceCircleConstraintRadius"
+        app:layout_constraintCircleAngle="345" />
+
+    <include
+        android:id="@+id/balancetext"
+        layout="@layout/balancetextview"
+        android:visibility="invisible"
+
+
+
+        />
+
+
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineViewb1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+
+        />
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineViewb2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineViewb3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineViewb4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineViewb5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineViewb6"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineViewb7"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineViewb8"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineViewb9"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineViewb10"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineViewb11"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.example.android.cop1803.LineView
+        android:id="@+id/LineViewb12"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.example.android.cop1803.Triangle
+        android:id="@+id/triangle1"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        />
+
+    <com.example.android.cop1803.Triangle
+        android:id="@+id/triangle2"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        />
+    <com.example.android.cop1803.Triangle
+        android:id="@+id/triangle3"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        />
+    <com.example.android.cop1803.Triangle
+        android:id="@+id/triangle4"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        />
+    <com.example.android.cop1803.Triangle
+        android:id="@+id/triangle5"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        />
+    <com.example.android.cop1803.Triangle
+        android:id="@+id/triangle6"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        />
+    <com.example.android.cop1803.Triangle
+        android:id="@+id/triangle7"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        />
+    <com.example.android.cop1803.Triangle
+        android:id="@+id/triangle8"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+    />
+<com.example.android.cop1803.Triangle
+android:id="@+id/triangle9"
+android:layout_width="60dp"
+android:layout_height="60dp"
+    />
+<com.example.android.cop1803.Triangle
+android:id="@+id/triangle10"
+android:layout_width="60dp"
+android:layout_height="60dp"
+    />
+<com.example.android.cop1803.Triangle
+android:id="@+id/triangle11"
+android:layout_width="60dp"
+android:layout_height="60dp"
+    />
+<com.example.android.cop1803.Triangle
+android:id="@+id/triangle12"
+android:layout_width="60dp"
+android:layout_height="60dp"
+    />
+
+
+
+
+    </android.support.constraint.ConstraintLayout>

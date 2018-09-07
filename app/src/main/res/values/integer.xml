@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    //balance circle angles
+    <integer name="BCangle1">15</integer>
+    <integer name="BCangle2">45</integer>
+    <integer name="BCangle3">75</integer>
+    <integer name="BCangle4">105</integer>
+    <integer name="BCangle5">135</integer>
+    <integer name="BCangle6">165</integer>
+    <integer name="BCangle7">195</integer>
+    <integer name="BCangle8">225</integer>
+    <integer name="BCangle9">255</integer>
+    <integer name="BCangle10">285</integer>
+    <integer name="BCangle11">315</integer>
+    <integer name="BCangle12">345</integer>
+
+    //line settings
+    <integer name="lineStrokePercentMain">7</integer>
+    <integer name="lineStrokePercentBalance">5</integer>
+
+    //triangle settings
+    <integer name="TriWidthPercent">5</integer>
+
+
+
+</resources>

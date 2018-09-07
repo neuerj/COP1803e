@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="oval">
+            <size
+                android:width="70dp"
+                android:height="70dp" />
+            <solid android:color="@color/black"/>
+
+            <!--shadow Color-->
+        </shape>
+    </item>
+
+    <item
+
+        android:left="3dp"
+        android:right="1dp"
+        android:top="0dp"
+        android:bottom="5dp"
+        >
+        <shape android:shape="ring"
+            android:thickness="10dp"
+                android:innerRadius="24dp"
+                android:useLevel="false">
+            <!--<size-->
+                <!--android:width="80dp"-->
+                <!--android:height="80dp" />-->
+
+            <solid android:color="@color/GradientEnd" />
+
+            <gradient
+                android:type="radial"
+                android:gradientRadius="30%p"
+                android:startColor="@color/GradientCenter"
+                android:endColor="@color/GradientEnd"
+                android:centerX="0.2"
+                android:centerY="0.2"
+                />
+        </shape>
+    </item>
+
+
+    <!--<item>-->
+        <!--&lt;!&ndash;android:left="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:right="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:top="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:bottom="20dp">&ndash;&gt;-->
+        <!--&lt;!&ndash;<shape android:shape="oval">&ndash;&gt;-->
+            <!--&lt;!&ndash;<size&ndash;&gt;-->
+                <!--&lt;!&ndash;android:width="40dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:height="40dp" />&ndash;&gt;-->
+            <!--&lt;!&ndash;<solid android:color="@color/black"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;&lt;!&ndash;shadow Color&ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;</shape>&ndash;&gt;-->
+    <!--</item>-->
+</layer-list>

@@ -1,0 +1,43 @@
+<resources>
+    <!--column 2 strings-->
+    <string name="app_name">CenterOfThePlate</string>
+    <string name="x11MainCOPtext">"The \nCenter of \nthe Plate"</string>
+    <string name="x21BreadingCrustCoatingsWraps">"Breading Crust Coatings Wraps"</string>
+    <string name="x22CuttingandManipulation">"Cutting and Manipulation"</string>
+    <string name="x23DryRubsandStuffings">"Dry Rubs and Stuffings"</string>
+    <string name="x24HerbandSpicePastes">"Herb and Spice Pastes"</string>
+    <string name="x25MarinadesandBrines">"Marinades and Brines"</string>
+    <string name="x26SpicesandSpiceCrusts">"Spices and Spice Crusts"</string>
+    <string name="x27Balance">"Balance"</string>
+    <string name="x31CookingTechniques">"Cooking Techniques"</string>
+    <string name="x41SaladsRelishes">"Salads Releshes"</string>
+    <string name="x42StarchesGrains">"Starches and Grains"</string>
+    <string name="x43Garnishes">"Garnishes"</string>
+    <string name="x44SaucesSalsa">"Sauces Salsas"</string>
+    <string name="x45VegetablesFruit">"Vegetables Fruit"</string>
+    <string name="Beef">Beef</string>
+
+    <string name="Resetbutton">"Reset"</string>
+
+
+<string name="subtext">
+    <font size="5">Text in bigger font size 5</font>
+</string>
+
+
+
+
+    <string name="action_settings">Settings</string>
+    <string name="my_cart">Center of the Plate</string>
+    <string name="delete">DELETE</string>
+    <string name="deleteIcon">DELETE</string>
+    <string name="slidedelete">Swipe \u003c\u002d\u002d\u002d\u002d to delete </string>
+
+    ///TCOTP Menu
+    <string name="kCal"><u>kCal</u></string>
+    <string name="Fat"><u>Fat</u></string>
+    <string name="Cho"><u>Today's Special</u></string>
+    <string name="Pro"><u>Pro</u></string>
+    <string name="Today_Special"><u>Today's Special</u></string>
+    <string name="Balance" />
+</resources>
