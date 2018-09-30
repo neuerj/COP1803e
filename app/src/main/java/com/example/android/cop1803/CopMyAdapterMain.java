@@ -72,9 +72,9 @@ String SelectedItem;
 
         holder.coplistdata=copitems.get(position);
        String text=holder.coplistdata.get_itemname();
-        SpannableStringBuilder builder=g.makeSectionOfTextBold(text);
+       String textlocation="RV";
+        SpannableStringBuilder builder=g.makeSectionOfTextBold(text,textlocation);
        holder.fooditem.setText(builder, TextView.BufferType.SPANNABLE);
-       //holder.fooditem.setText(holder.coplistdata.get_itemname());
        holder.imageExpandm.setImageResource(holder.coplistdata.getImageId());
 
 
@@ -88,7 +88,6 @@ String SelectedItem;
             int img=holder.coplistdata.getImageId();
             SelectedItem=holder.coplistdata.get_itemname();
             boolean isCheck= SelectKeep.IsChecked(img);
-            Cbutton=g.getCurrentbutton();
 
             if(isCheck) {
                 for (int i = 0; i < mMainActivit.cartList.size(); i++) {
@@ -96,8 +95,7 @@ String SelectedItem;
                     if (Cselect.equals(SelectedItem)) {
                         holder.itemView.setBackgroundColor(Color.CYAN);
                         holder.imageExpandm.setVisibility(View.VISIBLE);
-                        Cbutton.setText(text + "/n");
-                        break;
+                    break;
                          }
                     else {
                         holder.itemView.setBackgroundColor(Color.WHITE);
@@ -153,7 +151,7 @@ String SelectedItem;
                  Cselect=mMainActivit.cartList.get(i).name;
                   if (Cselect.trim().equals(SelectedItem.trim())) {
                     find=true;
-                    mMainActivit.removeFromList(i);
+                    mMainActivit.removeFromList(i, (Context) context);
                     holder.itemView.setBackgroundColor(Color.WHITE);
                     holder.imageExpandm.setVisibility(View.INVISIBLE);
                    // MainActivity.updateuserlist(Cselect);
@@ -162,7 +160,7 @@ String SelectedItem;
             }
             if (find==false){
                 Cselect = SelectedItem;
-                    mMainActivit.addToList(Cselect, Kcal, fat, cho, pro);
+                    mMainActivit.addToList(Cselect, Kcal, fat, cho, pro,(Context) context);
                     holder.itemView.setBackgroundColor(Color.CYAN);
                     holder.imageExpandm.setVisibility(View.VISIBLE);
                  }
@@ -171,7 +169,7 @@ String SelectedItem;
         else{
             g.setItemgroup(SelectedItem);
         }
-            mMainActivit.buttontext((Context) context);
+          //  mMainActivit.buttontext((Context) context);
     }
 
 

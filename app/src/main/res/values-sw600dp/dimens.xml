@@ -61,7 +61,34 @@
     //Balance circle constraints
     <dimen name="BalanceCircleConstraintRadius">300dp</dimen>
 
+    //PDF view
+        //MainCopButton
+        <dimen name="Width_PDF_Maincopbutton">110dp</dimen>
+        <dimen name="Height_PDF_Maincopbutton">110dp</dimen>
+        <dimen name="innerRadius_PDF_Maincopbutton">37dp</dimen>
+        <dimen name="thickness_PDF_Maincopbutton">15dp</dimen>
+        <dimen name="MarginStart_PDF_Maincopbutton">0dp</dimen>
+        <dimen name="MarginTop_PDF_Maincopbutton">0dp</dimen>
+        <dimen name="paddingStart_PDF_Maincopbutton">0dp</dimen>
+        <dimen name="paddingEnd_PDF_Maincopbutton">0dp</dimen>
+        <dimen name="paddingTop_PDF_Maincopbutton">0dp</dimen>
+        <dimen name="paddingBottom_PDF_Maincopbutton">0dp</dimen>
 
-
+    //Today's Special View
+        <dimen name="TextSize_PDF_TodaysSpecial">30sp</dimen>
+        <dimen name="MarginTop_PDF_TodaysSpecial">8dp</dimen>
+        //RecyclerviewvMenu
+        <dimen name="MarginTop_PDF_RecyclerViewMenu">1dp</dimen>
+        //Nutrients kCal,Fat,Cho,Pro
+        <dimen name="Margintop_PDF_Nutrients">4dp</dimen>
+        <dimen name="Marginbottom_PDF_Nutrients">4dp</dimen>
+        <dimen name="Marginstart_PDF_Nutrients">12dp</dimen>
+        <dimen name="Marginend_PDF_Nutrients">12dp</dimen>
+        <dimen name="Padstart_PDF_Nutrients">0dp</dimen>
+        <dimen name="Padend_PDF_Nutrients">0dp</dimen>
+        <dimen name="TextSize_PDF_Nutrients">25dp</dimen>
+        //Dividers
+        <dimen name="MarginTop_PDF_dividers">4dp</dimen>
+        <dimen name="MarginBottom_PDF_dividers">4dp</dimen>
 
 </resources>

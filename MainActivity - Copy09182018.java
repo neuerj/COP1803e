@@ -1,6 +1,5 @@
 package com.example.android.cop1803;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PointF;
@@ -22,7 +21,6 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
-import android.text.SpannableStringBuilder;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
@@ -38,10 +36,11 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import static javax.xml.xpath.XPathFactory.newInstance;
+import static com.example.android.cop1803.CartListAdapter.*;
 
 
 public class MainActivity extends AppCompatActivity implements OnClickListener, RecyclerItemTouchHelper.RecyclerItemTouchHelperListener {
@@ -55,8 +54,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     public List<CopListdata> coplistdatachild = new ArrayList<CopListdata>();
     public List<CopLayoutViews> mViewLocations = new ArrayList<CopLayoutViews>();
     public static ArrayList<Item> cartList = new ArrayList<Item>();
-    public static ArrayList<String> buttonque = new ArrayList<String>();
-    public static ArrayList<Button> cartlistbuttonobjectque = new ArrayList<Button>();
+    public static ArrayList<ArrayList> buttonque = new ArrayList<ArrayList>();
+    public static ArrayList<Button> buttonobjectque = new ArrayList<Button>();
     public static ArrayList<String> buttonquedefaulttext = new ArrayList<String>();
     public static ArrayList<String> currentbuttonBaseText = new ArrayList<String>();
     public static ArrayList<Integer> buttonID = new ArrayList<Integer>();
@@ -85,11 +84,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     private String buttontextdefault;
     private Drawable btnbackground;
     private int btnbackgroundshape;
-    private int que;
-    String btextall;
-    String btnCurrentbaseName;
-    int numberofselections;
-
 
 
     public Button ResetBtn;
@@ -107,7 +101,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     public final static String LIST_STATE_KEY = "recycler_list_state";
     Parcelable listState;
 
-    MenuDialogFragment mFragment;
     private BalanceOverlay fragmentSimple;
     private final String SIMPLE_FRAGMENT_TAG = "myfragmenttag";
 
@@ -283,7 +276,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
 
             case R.id.MainCOPbtn:
                 btnFoodClass= "MainCOPbtn";
-                buttontextdefault= getResources().getString(R.string.x11MainCOPtext);
+                String buttontextdefault= (String) btnx10.getText();
                 buttonid=v.getId();
                 recyecleviews(btnFoodClass,btnx10,btnx10text,buttontextdefault,buttonid);
                 float biasedValue = 0.0f;
@@ -294,9 +287,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
 
             case R.id.x21:
                  btnFoodClass= "btnx21";
-                buttontextdefault= getResources().getString(R.string.x21BreadingCrustCoatingsWraps);
+                buttontextdefault= (String) btnx21.getText();
                 buttonid=v.getId();
-                recyecleviews(btnFoodClass,btnx21,btnx21text,buttontextdefault,buttonid);
+                recyecleviews(btnFoodClass,btnx21,btnx10text,buttontextdefault,buttonid);
                 biasedValue = 0.3f;
                 butConstraint=v.getId();
                 repositionRv(btnFoodClass);
@@ -304,47 +297,47 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
 
             case R.id.x22:
                 btnFoodClass= "btnx22";
-                buttontextdefault= getResources().getString(R.string.x22CuttingandManipulation);
+                buttontextdefault= (String) btnx22.getText();
                 buttonid=v.getId();
-                recyecleviews(btnFoodClass,btnx22,btnx22text,buttontextdefault,buttonid);
+                recyecleviews(btnFoodClass,btnx22,btnx10text,buttontextdefault,buttonid);
                 butConstraint=v.getId();
                 repositionRv(btnFoodClass);
                 break;
             case R.id.x23:
                 btnFoodClass= "btnx23";
-                buttontextdefault= getResources().getString(R.string.x23DryRubsandStuffings);
+                buttontextdefault= (String) btnx23.getText();
                 buttonid=v.getId();
-                recyecleviews(btnFoodClass,btnx23,btnx23text,buttontextdefault,buttonid);
+                recyecleviews(btnFoodClass,btnx23,btnx10text,buttontextdefault,buttonid);
                 butConstraint=v.getId();
                 repositionRv(btnFoodClass);
                 break;
             case R.id.x24:
                 btnFoodClass= "btnx24";
-                buttontextdefault= getResources().getString(R.string.x24HerbandSpicePastes);
+                buttontextdefault= (String) btnx24.getText();
                 buttonid=v.getId();
-                recyecleviews(btnFoodClass,btnx24,btnx24text,buttontextdefault,buttonid);
+                recyecleviews(btnFoodClass,btnx24,btnx10text,buttontextdefault,buttonid);
                 butConstraint=v.getId();
                 repositionRv(btnFoodClass);
                 break;
             case R.id.x25:
                 btnFoodClass= "btnx25";
-                buttontextdefault= getResources().getString(R.string.x25MarinadesandBrines);
+                buttontextdefault= (String) btnx25.getText();
                 buttonid=v.getId();
-                recyecleviews(btnFoodClass,btnx25,btnx25text,buttontextdefault,buttonid);
+                recyecleviews(btnFoodClass,btnx25,btnx10text,buttontextdefault,buttonid);
                 butConstraint=v.getId();
                 repositionRv(btnFoodClass);
                 break;
             case R.id.x26:
                 btnFoodClass= "btnx26";
-                buttontextdefault= getResources().getString(R.string.x26SpicesandSpiceCrusts);
+                buttontextdefault= (String) btnx26.getText();
                 buttonid=v.getId();
-                recyecleviews(btnFoodClass,btnx26,btnx26text,buttontextdefault,buttonid);
+                recyecleviews(btnFoodClass,btnx26,btnx10text,buttontextdefault,buttonid);
                 butConstraint=v.getId();
                 repositionRv(btnFoodClass);
                 break;
             case R.id.x27:
                 btnFoodClass= "btnx27";
-                buttontextdefault= getResources().getString(R.string.x27Balance);
+                buttontextdefault= (String) btnx27.getText();
                 showBalanceDialog();
 
                 //recyecleviews(btnFoodClass,btnx27,btnx27text,buttontextdefault);
@@ -353,49 +346,49 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
                 break;
             case R.id.x31:
                 btnFoodClass= "btnx31";
-                buttontextdefault=getResources().getString(R.string.x31CookingTechniques);
+                buttontextdefault= (String) btnx31.getText();
                 buttonid=v.getId();
-                recyecleviews(btnFoodClass,btnx31,btnx31text,buttontextdefault,buttonid);
+                recyecleviews(btnFoodClass,btnx31,btnx10text,buttontextdefault,buttonid);
                 butConstraint=v.getId();
                 repositionRv(btnFoodClass);
                 break;
             case R.id.x41:
                 btnFoodClass= "btnx41";
-                buttontextdefault= getResources().getString(R.string.x41SaladsRelishes);
+                buttontextdefault= (String) btnx41.getText();
                 buttonid=v.getId();
-                recyecleviews(btnFoodClass,btnx41,btnx41text,buttontextdefault,buttonid);
+                recyecleviews(btnFoodClass,btnx41,btnx10text,buttontextdefault,buttonid);
                 butConstraint=v.getId();
                 repositionRv(btnFoodClass);
                 break;
             case R.id.x42:
                 btnFoodClass= "btnx42";
-                buttontextdefault= getResources().getString(R.string.x42StarchesGrains);
+                buttontextdefault= (String) btnx42.getText();
                 buttonid=v.getId();
-                recyecleviews(btnFoodClass,btnx42,btnx42text,buttontextdefault,buttonid);
+                recyecleviews(btnFoodClass,btnx42,btnx10text,buttontextdefault,buttonid);
                 butConstraint=v.getId();
                 repositionRv(btnFoodClass);
                 break;
             case R.id.x43:
                 btnFoodClass= "btnx43";
-                buttontextdefault= getResources().getString(R.string.x43Garnishes);
+                buttontextdefault= (String) btnx43.getText();
                 buttonid=v.getId();
-                recyecleviews(btnFoodClass,btnx43,btnx43text,buttontextdefault,buttonid);
+                recyecleviews(btnFoodClass,btnx43,btnx10text,buttontextdefault,buttonid);
                 butConstraint=v.getId();
                 repositionRv(btnFoodClass);
                 break;
             case R.id.x44:
                 btnFoodClass= "btnx44";
-                buttontextdefault=getResources().getString(R.string.x44SaucesSalsa);
+                buttontextdefault= (String) btnx44.getText();
                 buttonid=v.getId();
-                recyecleviews(btnFoodClass,btnx44,btnx44text,buttontextdefault,buttonid);
+                recyecleviews(btnFoodClass,btnx44,btnx10text,buttontextdefault,buttonid);
                 butConstraint=v.getId();
                 repositionRv(btnFoodClass);
                 break;
             case R.id.x45:
                 btnFoodClass= "btnx45";
-                buttontextdefault=getResources().getString(R.string.x45VegetablesFruit);
+                buttontextdefault= (String) btnx45.getText();
                 buttonid=v.getId();
-                recyecleviews(btnFoodClass,btnx45,btnx45text,buttontextdefault,buttonid);
+                recyecleviews(btnFoodClass,btnx45,btnx10text,buttontextdefault,buttonid);
                 butConstraint=v.getId();
                 repositionRv(btnFoodClass);
                 break;
@@ -404,7 +397,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         }}
 
     public void recyecleviews(final String foodclass,Button curbutton,ArrayList
-            currentbuttontext,String buttontextdefault,int currentbuttonid){
+            currentbuttontext,String buttontextdefault,int currentbuttonBaseText){
         if (c == 0) {
             g.setIsToogleflagon(GlobalVariables.TRUE);
         }
@@ -415,7 +408,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         g.setCurrentbutton(curbutton);
         g.setCurrentbuttontext(currentbuttontext);   //array each buttons selected menu text items
         g.setBtnDefaulttext(buttontextdefault);
-        g.setCurrentbuttonID(currentbuttonid);
 
         c++;
         recyclerView = findViewById(R.id.recycler_view);
@@ -707,26 +699,33 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
             if (size > 0) {
             for (int i = 1; i < size ; i++) {
                 cartList.remove(1);
+                Button btn = buttonobjectque.get(0);
+                btn.setText(buttonquedefaulttext.get(0));
+                GradientDrawable gradientDrawable;
+                switch (buttonquedefaulttext.get(0)) {
+                    case "The \nCenter of \nthe Plate":
+                        LayerDrawable layerDrawable = (LayerDrawable) ContextCompat.getDrawable
+                                (getApplicationContext(), R
+                                        .drawable.shapecopmainbutton);
+                        gradientDrawable = (GradientDrawable) layerDrawable
+                                .findDrawableByLayerId(R.id.gradientDrawbleRing);
+                        int colors[] = {Color.WHITE, 0xff579fe2};
+                        //  int colors[] = {0xff449DEF,Color.WHITE,0xff579fe2};
+                        gradientDrawable.setColors(colors);
+                        btn.setBackground(layerDrawable);
+                        break;
+                    default:
+                        gradientDrawable = (GradientDrawable) ContextCompat.getDrawable(getApplicationContext(), R
+                                .drawable.copbutton);
+                        int colors2[] = {0xff449DEF, Color.WHITE, 0xff579fe2};  //blue
+                        gradientDrawable.setColors(colors2);
+                        btn.setBackground(gradientDrawable);
+                        break;
+                }
+                buttonque.remove(0);  //button string name of button in position i
+                buttonobjectque.remove(0); // buttonobjectr the button object at position i
+                buttonquedefaulttext.remove(0);  //string   default test of button at position i
             }
-            cartlistbuttonobjectque.clear();
-              que=0;
-
-                     btextall=getResources().getString(R.string.x11MainCOPtext);btnCurrentbaseName=btextall;g.setCurrentbutton(btnx10);buttontext(this);
-                     btextall=getResources().getString(R.string.x21BreadingCrustCoatingsWraps);btnCurrentbaseName=btextall;g.setCurrentbutton(btnx21);buttontext(this);
-                     btextall=getResources().getString(R.string.x22CuttingandManipulation);btnCurrentbaseName=btextall;g.setCurrentbutton(btnx22);buttontext(this);
-                     btextall=getResources().getString(R.string.x23DryRubsandStuffings);btnCurrentbaseName=btextall;g.setCurrentbutton(btnx23);buttontext(this);
-                     btextall=getResources().getString(R.string.x24HerbandSpicePastes);btnCurrentbaseName=btextall;g.setCurrentbutton(btnx24);buttontext(this);
-                     btextall=getResources().getString(R.string.x25MarinadesandBrines);btnCurrentbaseName=btextall;g.setCurrentbutton(btnx25);buttontext(this);
-                     btextall=getResources().getString(R.string.x26SpicesandSpiceCrusts);btnCurrentbaseName=btextall;g.setCurrentbutton(btnx26);buttontext(this);
-                     btextall=getResources().getString(R.string.x27Balance);btnCurrentbaseName=btextall;g.setCurrentbutton(btnx27);buttontext(this);
-                     btextall=getResources().getString(R.string.x31CookingTechniques);btnCurrentbaseName=btextall;g.setCurrentbutton(btnx31);buttontext(this);
-                     btextall=getResources().getString(R.string.x41SaladsRelishes);btnCurrentbaseName=btextall;g.setCurrentbutton(btnx41);buttontext(this);
-                     btextall=getResources().getString(R.string.x42StarchesGrains);btnCurrentbaseName=btextall;g.setCurrentbutton(btnx42);buttontext(this);
-                     btextall=getResources().getString(R.string.x43Garnishes);btnCurrentbaseName=btextall;g.setCurrentbutton(btnx43);buttontext(this);
-                     btextall=getResources().getString(R.string.x44SaucesSalsa);btnCurrentbaseName=btextall;g.setCurrentbutton(btnx44);buttontext(this);
-                     btextall=getResources().getString(R.string.x45VegetablesFruit);btnCurrentbaseName=btextall;g.setCurrentbutton(btnx45);buttontext(this);
-
-
             mAdapter.notifyItemRangeRemoved(0, size);
             mAdapter.notifyDataSetChanged();
         }
@@ -734,124 +733,103 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
 
 
     public void removeFromList(int position,Context context) {
+
+        int xx=0;
+        int z=0;
+        int x=0;
         String name = cartList.get(position).name;
         // remove the item from recycler view
         cartList.remove(position);
-        cartlistbuttonobjectque.remove(position-1);
         mAdapter.notifyItemRemoved(position);
-
-        String btnidname=g.getCurrentbutton().getResources().getResourceEntryName(g.getCurrentbuttonID());
-        ArrayList<String> templist = new ArrayList<String>();
-       // buttonque.clear();
-        switch (btnidname) //  add item to current button's selection que
-        {
-            case "MainCOPbtn":
-                templist=g.getCurrentbuttontextbtnx10();
-                que=templist.size();
-                templist.remove(que-1);
-                g.setCurrentbuttontextbtnx10(templist);
-
-                break;
-            case "x21":templist=g.getCurrentbuttontextbtnx21();que=templist.size();templist.remove(que-1);g.setCurrentbuttontextbtnx21(templist);break;
-            case "x22":templist=g.getCurrentbuttontextbtnx22();que=templist.size();templist.remove(que-1);g.setCurrentbuttontextbtnx22(templist);break;
-            case "x23":templist=g.getCurrentbuttontextbtnx23();que=templist.size();templist.remove(que-1);g.setCurrentbuttontextbtnx23(templist);break;
-            case "x24":templist=g.getCurrentbuttontextbtnx24();que=templist.size();templist.remove(que-1);g.setCurrentbuttontextbtnx24(templist);break;
-            case "x25":templist=g.getCurrentbuttontextbtnx25();que=templist.size();templist.remove(que-1);g.setCurrentbuttontextbtnx25(templist);break;
-            case "x26":templist=g.getCurrentbuttontextbtnx26();que=templist.size();templist.remove(que-1);g.setCurrentbuttontextbtnx26(templist);break;
-            case "x27":templist=g.getCurrentbuttontextbtnx27();que=templist.size();templist.remove(que-1);g.setCurrentbuttontextbtnx27(templist);break;
-            case "x31":templist=g.getCurrentbuttontextbtnx31();que=templist.size();templist.remove(que-1);g.setCurrentbuttontextbtnx31(templist);break;
-            case "x41":templist=g.getCurrentbuttontextbtnx41();que=templist.size();templist.remove(que-1);g.setCurrentbuttontextbtnx41(templist);break;
-            case "x42":templist=g.getCurrentbuttontextbtnx42();que=templist.size();templist.remove(que-1);g.setCurrentbuttontextbtnx42(templist);break;
-            case "x43":templist=g.getCurrentbuttontextbtnx43();que=templist.size();templist.remove(que-1);g.setCurrentbuttontextbtnx43(templist);break;
-            case "x44":templist=g.getCurrentbuttontextbtnx44();que=templist.size();templist.remove(que-1);g.setCurrentbuttontextbtnx44(templist);break;
-            case "x45":templist=g.getCurrentbuttontextbtnx45();que=templist.size();templist.remove(que-1);g.setCurrentbuttontextbtnx45(templist);break;
-            default:break;
+        ArrayList btntextarray=buttonque.get(position-1);
+        x=0;
+        Iterator<Object> iter = btntextarray.iterator();
+        while (iter.hasNext()) {
+            Object btext = iter.next();
+            x++;
+            if (btext.toString()==name)
+                iter.remove();
+                g.setCurrentbuttontext(btntextarray);
+                xx=x;
         }
-        que=que-1;
-        btextall = "";
-        int x=0;
-        if (que == 0) {btextall = g.getBtnDefaulttext();}
-        else
+        String   btncurrentdefaulttext=buttonquedefaulttext.get(position-1);
+        z=0;
+        for (String btncnt:buttonquedefaulttext)  //check to see how many items are selected for
+        // this
+        // button.
         {
-            for (String btext : templist) {
-                int blength=btext.toString().length();
-                String buttontext=btext.toString();
-                btextall = btextall + "\n" + buttontext;;
-                x++;
-            }
+            if (btncnt==btncurrentdefaulttext);
+            z++;
         }
-        // buttonquedefaulttext.add(g.getBtnDefaulttext());  //array of current buttons defaulttext
-        mAdapter.notifyDataSetChanged();
-        btnCurrentbaseName=g.getBtnDefaulttext();
-        buttontext(context );
+        String btndefaulttext=buttonquedefaulttext.get(position-1);
+
+        buttonque.remove(xx-1);
+        buttonobjectque.remove(xx-1);
+        if(z==1)  // Replace button text with default text since buttonque is
+        // empty
+        {
+           // g.getCurrentbuttontext().add(btndefaulttext.toString());   //default text
+            //g.setCurrentbuttontext().(btndefaulttext.get(0));
+            buttontext(context);
+            buttonquedefaulttext.remove(x-1);
+        }
+        else {
+          //  g.setCurrentbuttontext(btntextarray);
+            buttontext(context);
+            buttonquedefaulttext.remove(x-1);
+        }
+
 
     }
     public void addToList(String item,String Kcal,String fat,String cho,String pro,Context context) {
-        int pos=0;
-        cartList.add(new Item(item,"desc",Kcal,fat,cho,pro));
-        cartlistbuttonobjectque.add(g.getCurrentbutton());
 
-        String btnidname=g.getCurrentbutton().getResources().getResourceEntryName(g.getCurrentbuttonID());
-        ArrayList<String> templist = new ArrayList<String>();
-        buttonque.clear();
-        switch (btnidname) //  add item to current button's selection que
-        {
-            case "MainCOPbtn":templist=g.getCurrentbuttontextbtnx10();templist.add(item);g.setCurrentbuttontextbtnx10(templist);break;
-            case "x21":templist=g.getCurrentbuttontextbtnx21();templist.add(item);g.setCurrentbuttontextbtnx21(templist);break;
-            case "x22":templist=g.getCurrentbuttontextbtnx22();templist.add(item);g.setCurrentbuttontextbtnx22(templist);break;
-            case "x23":templist=g.getCurrentbuttontextbtnx23();templist.add(item);g.setCurrentbuttontextbtnx23(templist);break;
-            case "x24":templist=g.getCurrentbuttontextbtnx24();templist.add(item);g.setCurrentbuttontextbtnx24(templist);break;
-            case "x25":templist=g.getCurrentbuttontextbtnx25();templist.add(item);g.setCurrentbuttontextbtnx25(templist);break;
-            case "x26":templist=g.getCurrentbuttontextbtnx26();templist.add(item);g.setCurrentbuttontextbtnx26(templist);break;
-            case "x27":templist=g.getCurrentbuttontextbtnx27();templist.add(item);g.setCurrentbuttontextbtnx27(templist);break;
-            case "x31":templist=g.getCurrentbuttontextbtnx31();templist.add(item);g.setCurrentbuttontextbtnx31(templist);break;
-            case "x41":templist=g.getCurrentbuttontextbtnx41();templist.add(item);g.setCurrentbuttontextbtnx41(templist);break;
-            case "x42":templist=g.getCurrentbuttontextbtnx42();templist.add(item);g.setCurrentbuttontextbtnx42(templist);break;
-            case "x43":templist=g.getCurrentbuttontextbtnx43();templist.add(item);g.setCurrentbuttontextbtnx43(templist);break;
-            case "x44":templist=g.getCurrentbuttontextbtnx44();templist.add(item);g.setCurrentbuttontextbtnx44(templist);break;
-            case "x45":templist=g.getCurrentbuttontextbtnx45();templist.add(item);g.setCurrentbuttontextbtnx45(templist);break;
-            default:break;
-        }
-        que=templist.size();
-        btextall = "";
-        int x=0;
-        if (que == 0) {btextall = g.getBtnDefaulttext();}
-        else
-        {
-            for (String btext : templist) {
-                int blength=btext.toString().length();
-                String buttontext=btext.toString();
-                if(x==0){btextall = btextall + buttontext;}
-                else {btextall = btextall + "\n" + buttontext;}
-                x++;
-            }
-        }
+        g.getCurrentbuttontext().add(item);
+        cartList.add(new Item(item,"desc",Kcal,fat,cho,pro));
+        buttonobjectque.add(g.getCurrentbutton());        //button tied to menu item
+        buttonque.add(g.getCurrentbuttontext());          //array of button text tied to each button
+        buttonquedefaulttext.add(g.getBtnDefaulttext());  //array of current buttons default text // , string
         mAdapter.notifyDataSetChanged();
-        btnCurrentbaseName=g.getBtnDefaulttext();
         buttontext(context );
-}
+    }
 
     // **** change button text and background color based on selection ******
     public void buttontext(Context context){
-        String textlocation="BUTTON";
-        SpannableStringBuilder builder=g.makeSectionOfTextBold(btextall,textlocation);
-        String checktext="The \nCenter of \nthe Plate";
-        if(btnCurrentbaseName.equals(checktext))          //if current button is main button
+            String btextall="";
+        int s=buttonquedefaulttext.size();
+        int sizeq=g.getCurrentbuttontext().size();
+        String btnCurrentbaseName=buttonquedefaulttext.get(s-1);
+        int que=buttonque.size();  //get number of buttons in ques
+        int x=0;
+        for (Object btext: g.getCurrentbuttontext() ) {
+            if (sizeq>0)
+               // x++;
+               // if(x>1)
+                btextall=btextall+"\n"+btext;
+            else
+
+                {btextall=btnCurrentbaseName;}
+         }
+        //int btnId=((MainActivity) context).btnx10.getId();
+        //String btnMainName=((MainActivity) context).getResources().getResourceEntryName(btnId);
+
+
+
+        if(btnCurrentbaseName==("MainCopbtn"))          //if current button is main button
             {
               LayerDrawable layerDrawable = (LayerDrawable)  ContextCompat.getDrawable(context,R
               .drawable.shapecopmainbutton);
               GradientDrawable gradientDrawable = (GradientDrawable) layerDrawable
                 .findDrawableByLayerId(R.id.gradientDrawbleRing);
 
-              if((que)>=1)
+              if((que)>1)
               {
-                g.getCurrentbutton().setText(builder, TextView.BufferType.SPANNABLE);
+                g.getCurrentbutton().setText(btextall);
                 int colors[] = {Color.WHITE,0xffE29D57};  //orange
                // int colors[] = {0xffef9f44,Color.WHITE,0xffE29D57};
                 gradientDrawable.setColors(colors);
             }
             else
-            {   g.getCurrentbutton().setText(builder, TextView.BufferType.SPANNABLE);
+            {   g.getCurrentbutton().setText(btnCurrentbaseName);
                 int colors[] = {Color.WHITE,0xff579fe2};  //blue
               //  int colors[] = {0xff449DEF,Color.WHITE,0xff579fe2};
                 gradientDrawable.setColors(colors);
@@ -865,11 +843,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
                         .drawable.copbutton);
                 gradientDrawable.mutate();
                 if ((que) >= 1) {
-                    g.getCurrentbutton().setText(builder, TextView.BufferType.SPANNABLE);
+                    g.getCurrentbutton().setText(btextall);
                     int colors2[] = {0xffef9f44,Color.WHITE,0xffE29D57};  //orange
                     gradientDrawable.setColors(colors2);
                 } else {
-                    g.getCurrentbutton().setText(builder, TextView.BufferType.SPANNABLE);
+                    g.getCurrentbutton().setText(btnCurrentbaseName);
                     int colors2[] = {0xff449DEF,Color.WHITE,0xff579fe2};  //blue
                     gradientDrawable.setColors(colors2);
                 }
@@ -887,54 +865,59 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         if (viewHolder instanceof CartListAdapter.MyViewHolder) {
             // get the removed item name to display it in snack bar
             Context context=getApplicationContext();
+            int xx=0;
+            int z=0;
+            int x=0;
             String name = cartList.get(viewHolder.getAdapterPosition()).getName();
+
                 // backup of removed item for undo purpose
                 final Item deletedItem = cartList.get(viewHolder.getAdapterPosition());
                 final int deletedIndex = viewHolder.getAdapterPosition();
-            // remove the item from recycler view
+
+                // remove the item from recycler view
             mAdapter.removeItem(viewHolder.getAdapterPosition());
-            mAdapter.notifyItemRemoved(position);
-            Button btn=cartlistbuttonobjectque.get(position-1);
-            int ID =btn.getId();
-            g.setCurrentbutton(btn);
-            String btnidname=g.getCurrentbutton().getResources().getResourceEntryName(ID);
-            cartlistbuttonobjectque.remove(position-1);
-            ArrayList<String> templist = new ArrayList<String>();
-            int xx=0;
-            switch (btnidname) //  add item to current button's selection que
-            {
-                case "MainCOPbtn": templist=g.getCurrentbuttontextbtnx10();templist.remove(name);g.setCurrentbuttontextbtnx10(templist);que=templist.size();g.setBtnDefaulttext(getResources().getString(R.string.x11MainCOPtext));break;
-                case "x21":templist=g.getCurrentbuttontextbtnx21();templist.remove(name);g.setCurrentbuttontextbtnx21(templist);que=templist.size();g.setBtnDefaulttext(getResources().getString(R.string.x21BreadingCrustCoatingsWraps));break;
-                case "x22":templist=g.getCurrentbuttontextbtnx22();templist.remove(name);g.setCurrentbuttontextbtnx22(templist);que=templist.size();g.setBtnDefaulttext(getResources().getString(R.string.x22CuttingandManipulation));break;
-                case "x23":templist=g.getCurrentbuttontextbtnx23();templist.remove(name);g.setCurrentbuttontextbtnx23(templist);que=templist.size();g.setBtnDefaulttext(getResources().getString(R.string.x23DryRubsandStuffings));break;
-                case "x24":templist=g.getCurrentbuttontextbtnx24();templist.remove(name);g.setCurrentbuttontextbtnx24(templist);que=templist.size();g.setBtnDefaulttext(getResources().getString(R.string.x24HerbandSpicePastes));break;
-                case "x25":templist=g.getCurrentbuttontextbtnx25();templist.remove(name);g.setCurrentbuttontextbtnx25(templist);que=templist.size();g.setBtnDefaulttext(getResources().getString(R.string.x25MarinadesandBrines));break;
-                case "x26":templist=g.getCurrentbuttontextbtnx26();templist.remove(name);g.setCurrentbuttontextbtnx26(templist);que=templist.size();g.setBtnDefaulttext(getResources().getString(R.string.x26SpicesandSpiceCrusts));break;
-                case "x27":templist=g.getCurrentbuttontextbtnx27();templist.remove(name);g.setCurrentbuttontextbtnx27(templist);que=templist.size();g.setBtnDefaulttext(getResources().getString(R.string.x27Balance));break;
-                case "x31":templist=g.getCurrentbuttontextbtnx31();templist.remove(name);g.setCurrentbuttontextbtnx31(templist);que=templist.size();g.setBtnDefaulttext(getResources().getString(R.string.x31CookingTechniques));break;
-                case "x41":templist=g.getCurrentbuttontextbtnx41();templist.remove(name);g.setCurrentbuttontextbtnx41(templist);que=templist.size();g.setBtnDefaulttext(getResources().getString(R.string.x41SaladsRelishes));break;
-                case "x42":templist=g.getCurrentbuttontextbtnx42();templist.remove(name);g.setCurrentbuttontextbtnx42(templist);que=templist.size();g.setBtnDefaulttext(getResources().getString(R.string.x42StarchesGrains));break;
-                case "x43":templist=g.getCurrentbuttontextbtnx43();templist.remove(name);g.setCurrentbuttontextbtnx43(templist);que=templist.size();g.setBtnDefaulttext(getResources().getString(R.string.x43Garnishes));break;
-                case "x44":templist=g.getCurrentbuttontextbtnx44();templist.remove(name);g.setCurrentbuttontextbtnx44(templist);que=templist.size();g.setBtnDefaulttext(getResources().getString(R.string.x44SaucesSalsa));break;
-                case "x45":templist=g.getCurrentbuttontextbtnx45();templist.remove(name);g.setCurrentbuttontextbtnx45(templist);que=templist.size();g.setBtnDefaulttext(getResources().getString(R.string.x45VegetablesFruit));break;
-                default:break;
+
+            ArrayList btntextarray=buttonque.get(position-1);
+            x=0;
+            Iterator<Object> iter = btntextarray.iterator();
+            while (iter.hasNext()) {
+                Object btext = iter.next();
+                x++;
+                if (btext.toString()==name)
+                    iter.remove();
+                g.setCurrentbuttontext(btntextarray);
+                xx=x;
             }
-            btextall = "";
-            int x=0;
-            if (que == 0) {btextall = g.getBtnDefaulttext();}
-            else
+
+            String   btncurrentdefaulttext=buttonquedefaulttext.get(position-1);
+            z=0;
+            for (String btncnt:buttonquedefaulttext)  //check to see how many items are selected for
+            // this
+            // button.
             {
-                for (String btext : templist) {
-                    int blength=btext.toString().length();
-                    String buttontext=btext.toString();
-                    btextall = btextall + "\n" + buttontext;;
-                    x++;
-                }
+                if (btncnt==btncurrentdefaulttext);
+                z++;
             }
-            // buttonquedefaulttext.add(g.getBtnDefaulttext());  //array of current buttons defaulttext
-            mAdapter.notifyDataSetChanged();
-            btnCurrentbaseName=g.getBtnDefaulttext();
-            buttontext(context );
+            String btndefaulttext=buttonquedefaulttext.get(deletedIndex-1);
+
+            buttonque.remove(xx-1);
+            buttonobjectque.remove(xx-1);
+            if(z==1)  // Replace button text with default text since buttonque is
+            // empty
+            {
+                //g.getCurrentbuttontext().add(btndefaulttext.toString());   //default text
+                //g.setCurrentbuttontext(btndefaulttext);
+                buttontext(context);
+                buttonquedefaulttext.remove(x-1);
+            }
+            else {
+               /// g.setCurrentbuttontext(btntextarray);
+                buttontext(context);
+                buttonquedefaulttext.remove(x-1);
+            }
+
+
+
             if (( (this.recycler_view2 != null) && (recycler_view2.getVisibility() == this.recycler_view2.VISIBLE))) {
                 this.adapterchild.notifyDataSetChanged();}
             else
@@ -975,32 +958,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
                 return true;
             case R.id.mShare:
                 Toast.makeText(this, "You have selected Share", Toast.LENGTH_SHORT).show();
-                //final FragmentManager fm=getSupportFragmentManager();
-                //final  MenuDialogFragment menufood=new MenuDialogFragment();
-                //menufood.show(fm,"FoodMenuTag");
-
-                mFragment = MenuDialogFragment.newInstance();
-                Bundle bundle = new Bundle();
-                bundle.putParcelableArrayList("key", cartList);
-                mFragment.setArguments(bundle);//Finally set argument bundle to fragment
-
-                final FragmentManager fmm=getSupportFragmentManager();
-                mFragment.show(fmm,"dialog menu");
-
-              //  if(!((Activity) context).isFinishing())
-              //  {
-                    //show dialog
-             //   }
-
-//
-
-
-
-//                getSupportFragmentManager().beginTransaction()
-//                        .replace(R.id.mylayoutcustom, mFragment)
-//                        .addToBackStack(null)
-//                        .commit();
-
                 return true;
 //                Intent share = new Intent(android.content.Intent.ACTION_SEND);
 //                share.setType("text/plain");
@@ -1014,7 +971,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
                 Toast.makeText(this, "You have selected FAQ", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.Settings:
-                Toast.makeText(this, "You have selected Settings", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "You have selected FAQ", Toast.LENGTH_SHORT).show();
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -1083,17 +1040,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     private void showBalanceDialog() {
        FragmentManager fm = getSupportFragmentManager();
        // dataFragment=(Fragment.SavedState);
+
         fragmentSimple = BalanceOverlay.newInstance("Balance Overlay");
         fragmentSimple.setRetainInstance(true);
         fragmentSimple.show(fm, "Balance");
-
     }
-
-
-
-
-
-
 
     //onsaveInstanceState bundle
     @Override

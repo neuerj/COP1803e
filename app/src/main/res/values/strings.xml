@@ -53,20 +53,23 @@
     <font size="5">Text in bigger font size 5</font>
 </string>
 
+    //app bar menu
+    <string name="action_settings">FAQ</string>
+    <string name="menu">Menu</string>
 
 
-
-    <string name="action_settings">Settings</string>
     <string name="my_cart">Center of the Plate</string>
     <string name="delete">DELETE</string>
     <string name="deleteIcon">DELETE</string>
     <string name="slidedelete">Swipe \u003c\u002d\u002d\u002d\u002d to delete </string>
 
     ///TCOTP Menu
-    <string name="kCal"><u>kCal</u></string>
+    <string name="kCal"><u>kCalorie</u></string>
     <string name="Fat"><u>Fat</u></string>
-    <string name="Cho"><u>Today's Special</u></string>
-    <string name="Pro"><u>Pro</u></string>
-    <string name="Today_Special"><u>Today's Special</u></string>
-    <string name="Balance" />
+    <string name="Chol"><u>Cholesterol</u></string>
+    <string name="Pro"><u>Protein</u></string>
+    <string name="Today_Special"><u>Today\'s Special</u></string>
+    <string name="Balance">"Balance"</string>
+    <string name="SendPDF">"Send PDF"</string>
+        />
 </resources>

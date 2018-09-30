@@ -1,10 +1,13 @@
 package com.example.android.cop1803;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by Jim Neuer on 20/05/18.
  */
 
-public class Item {
+public class Item implements Parcelable {
   //  int id;
     String name;
     String description;
@@ -16,6 +19,7 @@ public class Item {
   //  String thumbnail;
 
     public Item(String name, String description, String KCal, String Fat, String Cho,String Pro) {
+        super();
         this.name=name;
         this.description=description;
         this.KCal = KCal;
@@ -24,15 +28,9 @@ public class Item {
         this.Pro = Pro;
     }
 
-/*
-    public int getId() {
-        return id;
+ public Item(){
+        super();
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-*/
 
     public String getName() {
         return name;
@@ -100,4 +98,41 @@ public class Item {
     public void setThumbnail(String thumbnail) {
         this.thumbnail = thumbnail;
     }*/
+   @SuppressWarnings("unused")
+   public Item(Parcel in) {
+       this();
+       readFromParcel(in);
+   }
+    private void readFromParcel(Parcel in) {
+        this.name=in.readString();
+        this.description=in.readString();
+        this.KCal = in.readString();
+        this.Fat = in.readString();
+        this.Cho =in.readString();
+        this.Pro = in.readString();
+    }
+    public int describeContents() {
+        return 0;
+    }
+    public final Parcelable.Creator<Item> CREATOR = new Parcelable.Creator<Item>() {
+        public Item createFromParcel(Parcel in) {
+            return new Item(in);
+        }
+
+        public Item[] newArray(int size) {
+            return new Item[size];
+        }
+    };
+
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(description);
+        dest.writeString(KCal);
+        dest.writeString(Fat);
+        dest.writeString(Cho);
+        dest.writeString(Pro);
+    }
+
 }

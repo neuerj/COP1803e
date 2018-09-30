@@ -6,10 +6,14 @@
     <color name="colorAccent">#FF4081</color>
     <color name="textColorPrimary">#FFFFFF</color>
 
+    <color name="actionBarText">#FFFFFF</color>
+
     <color name="test">#5e81a3</color>
     <color name="GradientCenter">#ffffff</color>
     <color name="GradientStart">#449DEF</color>
     <color name="GradientEnd">#579fe2</color>
+    <color name="GradientStartS">#ffe082</color>
+    <color name="GradientEndS">#fde8a9</color>
     <color name="GradientStartl">#ef9f44</color>
     <color name="GradientEndl">#E29D57</color>
     <color name="strokeMain">#000000</color>

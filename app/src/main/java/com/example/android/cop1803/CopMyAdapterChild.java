@@ -69,7 +69,8 @@ public class CopMyAdapterChild extends RecyclerView.Adapter<CopMyAdapterChild.Vi
         final CopListdata coplistdata = copitems.get(position);
         holder.coplistdata=copitems.get(position);
         String text=holder.coplistdata.get_itemname();
-        SpannableStringBuilder builder=g.makeSectionOfTextBold(text);
+        String textlocation="RV";
+        SpannableStringBuilder builder=g.makeSectionOfTextBold(text,textlocation);
         holder.fooditem.setText(builder, TextView.BufferType.SPANNABLE);
         holder.imageExpand.setImageResource(coplistdata.getImageId());
 
@@ -118,11 +119,11 @@ public class CopMyAdapterChild extends RecyclerView.Adapter<CopMyAdapterChild.Vi
 
 
                 if(mMainActivit.cartList.size()>=2){
-                    slidetodeletemsg.setVisibility(View.VISIBLE);
+               //     slidetodeletemsg.setVisibility(View.VISIBLE);
                     ResetBtn.setVisibility(View.VISIBLE);
                 }
                 else {
-                    slidetodeletemsg.setVisibility(View.INVISIBLE);
+                //    slidetodeletemsg.setVisibility(View.INVISIBLE);
                     ResetBtn.setVisibility(View.INVISIBLE);
                 }
 
@@ -136,6 +137,7 @@ public class CopMyAdapterChild extends RecyclerView.Adapter<CopMyAdapterChild.Vi
         String foodgroup;
         Integer img=pos.getImageId();
         Integer cartsize=mMainActivit.cartList.size();
+
 
 
         foodgroup=g.getItemgroup();
@@ -170,28 +172,32 @@ public class CopMyAdapterChild extends RecyclerView.Adapter<CopMyAdapterChild.Vi
             int cnt=0;
             boolean find=false;
             for (int i = 0; i < cartsize; i++) {
+
                  Cselect=mMainActivit.cartList.get(i).name;
                 if (Cselect.trim().equals(SelectedItem.trim())) {
                     find=true;
-                    mMainActivit.removeFromList(i);
+                    mMainActivit.removeFromList(i,(Context) context);
                     holder.itemView.setBackgroundColor(Color.WHITE);
                     holder.imageExpand.setVisibility(View.INVISIBLE);
                     // MainActivity.updateuserlist(Cselect);
+
+
                     break;
                 }
             }
             if (find==false){
                 Cselect = SelectedItem;
-                mMainActivit.addToList(SelectedItem,Kcal,fat,cho,pro);
+                mMainActivit.addToList(SelectedItem,Kcal,fat,cho,pro,(Context) context);
                 holder.itemView.setBackgroundColor(Color.CYAN);
                 holder.imageExpand.setVisibility(View.VISIBLE);
+                //mMainActivit.buttontext((Context) context);
             }
         }
         //*************
         else{
             g.setItemgroup(SelectedItem);
         }
-        mMainActivit.buttontext((Context) context);
+
     }
 
     @Override

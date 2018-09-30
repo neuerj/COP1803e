@@ -25,13 +25,14 @@
     <dimen name="layoutheightresetbutton">40dp</dimen>
 
     //small cop button
-    <dimen name="layoutwidthcopbutton">50dp</dimen>
-    <dimen name="layoutheightcopbutton">50dp</dimen>
+    <dimen name="layoutwidthcopbutton">38dp</dimen>
+    <dimen name="layoutheightcopbutton">38dp</dimen>
+    <dimen name="paddingleftcopbutton">1dp</dimen>
+    <dimen name="paddingrightcopbutton">1dp</dimen>
 
     //medium cop button
     <dimen name="layoutwidthMedcopbutton">62dp</dimen>
     <dimen name="layoutheightMedcopbutton">62dp</dimen>
-
 
     //main cop button/ring
     <dimen name="WidthMaincopbutton">70dp</dimen>
@@ -40,6 +41,8 @@
     <dimen name="thicknessMaincopbutton">15dp</dimen>
     <dimen name="layoutwidthMaincopbutton">70dp</dimen>
     <dimen name="layoutheightMaincopbutton">70dp</dimen>
+    <dimen name="paddingleftmaincopbutton">2dp</dimen>
+    <dimen name="paddingrightmaincopbutton">2dp</dimen>
 
     //button row bias
     <dimen name="bias1c">.15</dimen>
@@ -54,4 +57,37 @@
 
     <dimen name="ic_delete">20dp</dimen>
     <dimen name="thumbnail">90dp</dimen>
+
+    //Balance circle constraints
+    <dimen name="BalanceCircleConstraintRadius">300dp</dimen>
+
+    //PDF view
+    //MainCopButton
+    <dimen name="Width_PDF_Maincopbutton">70dp</dimen>
+    <dimen name="Height_PDF_Maincopbutton">70dp</dimen>
+    <dimen name="innerRadius_PDF_Maincopbutton">23dp</dimen>
+    <dimen name="thickness_PDF_Maincopbutton">10dp</dimen>
+    <dimen name="MarginStart_PDF_Maincopbutton">4dp</dimen>
+    <dimen name="MarginTop_PDF_Maincopbutton">4dp</dimen>
+    <dimen name="paddingStart_PDF_Maincopbutton">1dp</dimen>
+    <dimen name="paddingEnd_PDF_Maincopbutton">1dp</dimen>
+    <dimen name="paddingTop_PDF_Maincopbutton">1dp</dimen>
+    <dimen name="paddingBottom_PDF_Maincopbutton">1dp</dimen>
+
+    //Today's Special View
+    <dimen name="TextSize_PDF_TodaysSpecial">20sp</dimen>
+    <dimen name="MarginTop_PDF_TodaysSpecial">8dp</dimen>
+    //RecyclerviewvMenu
+    <dimen name="MarginTop_PDF_RecyclerViewMenu">20dp</dimen>
+    //Nutrients kCal,Fat,Cho,Pro
+    <dimen name="Margintop_PDF_Nutrients">4dp</dimen>
+    <dimen name="Marginbottom_PDF_Nutrients">4dp</dimen>
+    <dimen name="Marginstart_PDF_Nutrients">8dp</dimen>
+    <dimen name="Marginend_PDF_Nutrients">8dp</dimen>
+    <dimen name="Padstart_PDF_Nutrients">2dp</dimen>
+    <dimen name="Padend_PDF_Nutrients">2dp</dimen>
+    <dimen name="TextSize_PDF_Nutrients">15dp</dimen>
+    //Dividers
+    <dimen name="MarginTop_PDF_dividers">4dp</dimen>
+    <dimen name="MarginBottom_PDF_dividers">4dp</dimen>
 </resources>

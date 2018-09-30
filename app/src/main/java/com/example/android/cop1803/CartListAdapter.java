@@ -22,13 +22,9 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.MyView
     Globals g =Globals.getInstance();
 
 
-
-
-
-
     MainActivity mMainActivit = new MainActivity();
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView name, description,slidetodeletemsg ;//, price;
         public ImageView thumbnail;
         public RelativeLayout viewBackground, viewForeground;
@@ -64,12 +60,12 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.MyView
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
-
-
         final Item item = cartList.get(position);
         holder.item=cartList.get(position);
         String text=holder.item.getName();
-        SpannableStringBuilder builder=g.makeSectionOfTextBold(text);
+
+        String textlocation="CARTLIST";
+        SpannableStringBuilder builder=g.makeSectionOfTextBold(text,textlocation);
 
         holder.name.setText(builder, TextView.BufferType.SPANNABLE);
 
