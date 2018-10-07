@@ -72,4 +72,6 @@
     <string name="Balance">"Balance"</string>
     <string name="SendPDF">"Send PDF"</string>
         />
+
+    <string name="file_provider_authority" translatable="false">com.example.android.cop1803.fileprovider</string>
 </resources>

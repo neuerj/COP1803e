@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:tag="FoodMenuTag"
+    android:id="@+id/scroll"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:background="@drawable/retina_wood"
     tools:context="com.example.android.cop1803.MainActivity">

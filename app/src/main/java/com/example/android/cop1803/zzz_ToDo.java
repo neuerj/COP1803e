@@ -3,10 +3,17 @@ package com.example.android.cop1803;
 import android.widget.Button;
 
 public class zzz_ToDo {
-    // Balance ring
-        // add title to balance
-        // add button states item list
-        // fix textview from appearing under button
+
+    // when returning from menu view the Today's Special heading disappears.
+    // garnish menu , potatoes not selectable.
+    // make heading labels unselectable/ and use to tie to catagory.
+
+
+    // Remove Share from front user menu and add to dialog header.
+    // Add return navigation from menu dialog.
+
+    // font outline
+// format for smart phone.
 
 
     //search button
@@ -14,7 +21,7 @@ public class zzz_ToDo {
 
 
     //create menu view and pdf print file.
-
+        //add option to save or print.
 
 
     // chili peppers add scu units.
@@ -33,7 +40,10 @@ public class zzz_ToDo {
 //add selection to owner button and change to yellow.
 // //match the color better.
 //
-//
+//    // Balance ring
+//        // add title to balance
+//        // add button states item list
+//        // fix textview from appearing under button
 //
 //
 //Button btnCurrent=g.getCurrentbutton();

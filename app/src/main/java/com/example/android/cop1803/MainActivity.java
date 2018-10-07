@@ -36,6 +36,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -979,7 +980,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
                 //final  MenuDialogFragment menufood=new MenuDialogFragment();
                 //menufood.show(fm,"FoodMenuTag");
 
-                mFragment = MenuDialogFragment.newInstance();
+                try {
+                    mFragment = MenuDialogFragment.newInstance();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
                 Bundle bundle = new Bundle();
                 bundle.putParcelableArrayList("key", cartList);
                 mFragment.setArguments(bundle);//Finally set argument bundle to fragment
