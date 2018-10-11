@@ -3,6 +3,7 @@ package com.example.android.cop1803;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Movie;
 import android.graphics.PointF;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
@@ -106,7 +107,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
 
     static TextView userMenu;
     public final static String LIST_STATE_KEY = "recycler_list_state";
-    Parcelable listState;
+    public final static String LIST_STATE_KEY_CART = "cartlist_list_state";
+    Parcelable listState,cartliststate;
 
     MenuDialogFragment mFragment;
     private BalanceOverlay fragmentSimple;
@@ -159,6 +161,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
 //************ menulist *********
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         getSupportActionBar().setTitle(getString(R.string.my_cart));
       //  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -522,12 +525,17 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     }
 
     protected void onSaveInstanceState(Bundle state) {
-        if(s==1){
+      //  if(s==1){
         super.onSaveInstanceState(state);
         // Save list state
         listState = recyclerViewMenu.getLayoutManager().onSaveInstanceState();
-        state.putParcelable(LIST_STATE_KEY, listState);}
-        s=1;
+
+      //  }
+
+
+        state.putParcelableArrayList(LIST_STATE_KEY_CART, cartList);
+
+    //    s=1;
     }
 
     protected void onRestoreInstanceState(Bundle state) {
@@ -535,6 +543,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         // Retrieve list state and list/item positions
         if(state != null)
             listState = state.getParcelable(LIST_STATE_KEY);
+
+        cartList = state.getParcelableArrayList(LIST_STATE_KEY_CART);
     }
 
     @Override
@@ -542,6 +552,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         super.onResume();
         if (listState != null ) {
             recyclerViewMenu.getLayoutManager().onRestoreInstanceState(listState);
+            //cartList = onRestoreInstanceState(stat);
         }
          }
 
@@ -971,11 +982,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         switch (item.getItemId()) {
-            case R.id.menu:
+            /*case R.id.mShare:
                 Toast.makeText(this, "You have selected Menu", Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.mShare:
-                Toast.makeText(this, "You have selected Share", Toast.LENGTH_SHORT).show();
+                return true;*/
+            case R.id.menu:
+                Toast.makeText(this, "You have selected View Menu", Toast.LENGTH_SHORT).show();
                 //final FragmentManager fm=getSupportFragmentManager();
                 //final  MenuDialogFragment menufood=new MenuDialogFragment();
                 //menufood.show(fm,"FoodMenuTag");
@@ -1018,9 +1029,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
             case R.id.FAQ:
                 Toast.makeText(this, "You have selected FAQ", Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.Settings:
+           /* case R.id.Settings:
                 Toast.makeText(this, "You have selected Settings", Toast.LENGTH_SHORT).show();
-                return true;
+                return true;*/
         }
         return super.onOptionsItemSelected(item);
     }
@@ -1095,7 +1106,15 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     }
 
 
+   /* @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        // Save the user's current game state
+        savedInstanceState.put(STATE_SCORE, mCurrentScore);
+        savedInstanceState.putInt(STATE_LEVEL, mCurrentLevel);
 
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(savedInstanceState);
+    }*/
 
 
 
@@ -1105,6 +1124,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     public Parcelable onSaveInstanceState() {
         Bundle bundle = new Bundle();
         // Save current View's state here
+        bundle.putParcelableArrayList(LIST_STATE_KEY_CART, cartList);
         return bundle;
     }
 
@@ -1113,7 +1133,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     public void onRestoreInstanceState(Parcelable state) {
         super.onRestoreInstanceState((Bundle) state);
         // Restore View's state here
-
+        //cartList = (ArrayList<Item>) savedInstanceState.getParcelableArrayList("movieList");
     }
 
 }

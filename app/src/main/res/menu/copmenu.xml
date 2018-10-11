@@ -9,12 +9,12 @@
         android:title="@string/menu"
         app:showAsAction="always|withText"
         />
-    <item
+    <!--<item
         android:id="@+id/mShare"
         android:title="Share"
         android:icon="@drawable/ic_share"
         app:showAsAction="ifRoom|withText"
-        />
+        />-->
     <item
         android:id="@+id/FAQ"
         android:orderInCategory="100"
@@ -22,10 +22,10 @@
         app:showAsAction="ifRoom|withText"
         />
    <!--settings;paper,sound-->
-    <item
+   <!-- <item
         android:id="@+id/Settings"
         android:orderInCategory="200"
         android:title="@string/action_settings"
         app:showAsAction="never|withText"
-        />
+        />-->
 </menu>

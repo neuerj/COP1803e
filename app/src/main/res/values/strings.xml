@@ -58,7 +58,7 @@
     <string name="menu">Menu</string>
 
 
-    <string name="my_cart">Center of the Plate</string>
+    <string name="my_cart">The Center of the Plate</string>
     <string name="delete">DELETE</string>
     <string name="deleteIcon">DELETE</string>
     <string name="slidedelete">Swipe \u003c\u002d\u002d\u002d\u002d to delete </string>
@@ -70,7 +70,7 @@
     <string name="Pro"><u>Protein</u></string>
     <string name="Today_Special"><u>Today\'s Special</u></string>
     <string name="Balance">"Balance"</string>
-    <string name="SendPDF">"Send PDF"</string>
+    <string name="SendPDF">"TCOTP \nShare PDF"</string>
         />
 
     <string name="file_provider_authority" translatable="false">com.example.android.cop1803.fileprovider</string>

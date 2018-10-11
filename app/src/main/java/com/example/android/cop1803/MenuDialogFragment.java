@@ -49,7 +49,7 @@ public class MenuDialogFragment extends AppCompatDialogFragment {
     private String path;
     View view;
     Bitmap b;
-    Button btnPDF;
+    Button btnPDF,btnback;
 
 
 
@@ -77,6 +77,7 @@ public class MenuDialogFragment extends AppCompatDialogFragment {
         final View view = inflater.inflate(R.layout.recyclerview_menu, container, false);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_menuview);
         btnPDF=view.findViewById(R.id.MainCOPbtn);
+        btnback=view.findViewById(R.id.MainCOPbackbtn);
         //btnPDF.setOnClickListener((View.OnClickListener) getContext()); // calling onClick()
         // method
         btnPDF.setOnClickListener(new View.OnClickListener() {
@@ -84,6 +85,14 @@ public class MenuDialogFragment extends AppCompatDialogFragment {
             @Override
             public void onClick(View v) {
                 takeScreenShot();
+            }
+        });
+
+        btnback.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                MenuDialogFragment.this.dismiss();
             }
         });
 
@@ -96,7 +105,7 @@ public class MenuDialogFragment extends AppCompatDialogFragment {
         Bundle args = getArguments();
         if(args != null) {
             cartList = args.getParcelableArrayList("key");
-            cartList.remove(0);
+            //cartList.remove(0);
         MenuDialogFragmentAdapter adapter = new MenuDialogFragmentAdapter(this.getActivity(), cartList);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(adapter);
@@ -172,8 +181,8 @@ public class MenuDialogFragment extends AppCompatDialogFragment {
                     e.printStackTrace();
                 }
                 createPdf(b);// create pdf after creating bitmap and saving
-               // viewPdf();
                 emailMenu();
+
             }
         }
 
@@ -224,6 +233,7 @@ public class MenuDialogFragment extends AppCompatDialogFragment {
         // close the document
         document.close();
         //openPdf(path);// You can open pdf after complete
+
     }
     private void viewPdf(){
         Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -242,24 +252,24 @@ public class MenuDialogFragment extends AppCompatDialogFragment {
     private void emailMenu()
     {
         String mSubjectEditText="TCOTP Today's Special";
-        String mBodyEditText="Bam MF'r!";
+        String mBodyEditText="";
         File myFile=new File(path);
-
         Intent email = new Intent(Intent.ACTION_SEND);
         //email.setType("message/rfc822");
         email.setType("application/pdf");
         email.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         email.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        email.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
         email.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 
         email.putExtra(Intent.EXTRA_SUBJECT,mSubjectEditText);
         email.putExtra(Intent.EXTRA_TEXT, mBodyEditText);
 
         Uri apkURI = FileProvider.getUriForFile(getContext(),getString(R.string.file_provider_authority), new File(path));
-        //Uri uri = Uri.parse(myFile.getAbsolutePath());
         email.putExtra(Intent.EXTRA_STREAM, apkURI);
+
         startActivity(Intent.createChooser(email, "Share Menu"));
-        //startActivity(email);
+
     }
     public boolean isStoragePermissionGranted() {
         String TAG = "Storage Permission";
@@ -280,6 +290,9 @@ public class MenuDialogFragment extends AppCompatDialogFragment {
             return true;
         }
     }
+
+
+
 }
 /*    private void createPdf(){
         File pdfFolder = new File(Environment.getExternalStoragePublicDirectory(
