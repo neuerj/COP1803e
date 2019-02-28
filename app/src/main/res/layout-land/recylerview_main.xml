@@ -22,33 +22,54 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="1dp"
-        android:gravity="start"
-        android:textSize="12sp"
-
+        android:textSize="11sp"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="@id/imageExpand"
          />
-    <!---->
 
-    <!--tools:fontFamily="@font/droid_serif"-->
-    <!--android:textStyle="bold"-->
-    <!--app:layout_constraintEnd_toStartOf="@id/imageExpand"-->
-    <!--android:background="@color/white80"-->
-    <!--app:layout_constraintEnd_toStartOf="@id/guideline"-->
-    <!--android:textAppearance="@style/itemfont"-->
     <ImageView
         android:id="@+id/imageExpand"
         android:layout_width="0dp"
         app:layout_constraintWidth_percent=".15"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+
         android:layout_marginEnd="1dp"
         android:layout_marginStart="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <!--app:layout_constraintStart_toStartOf="@+id/guideline"-->
+
+    <TextView
+        android:id="@+id/kCalorie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/Fats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/Cholestrol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/Protein"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
 
 </android.support.constraint.ConstraintLayout>

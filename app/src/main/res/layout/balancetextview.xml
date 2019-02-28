@@ -4,17 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mybalancelayouttextview"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
 
     <TextView
         android:id="@+id/balancetextheader"
-        android:layout_width="match_parent"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="4dp"
         android:background="@color/description"
-
         android:text="test"
         android:textAlignment="center"
         android:textAppearance="@style/ButtonFontStylebalance"
@@ -27,20 +25,20 @@
 
     <TextView
         android:id="@+id/balancetextt"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="4dp"
+        app:layout_constraintWidth_default="wrap"
         android:background="@color/white"
         android:elevation="7dp"
-        android:translationZ="12dp"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
         android:scrollbars="vertical"
         android:textAppearance="@style/ButtonFontStylebalance"
-
+        android:translationZ="12dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/balancetextheader"
-        tools:layout_editor_absoluteY="1095dp" />
+        app:layout_constraintEnd_toEndOf="@+id/balancetextheader"
+        app:layout_constraintStart_toStartOf="@id/balancetextheader"
+        app:layout_constraintTop_toBottomOf="@id/balancetextheader" />
 
 
 </android.support.constraint.ConstraintLayout>

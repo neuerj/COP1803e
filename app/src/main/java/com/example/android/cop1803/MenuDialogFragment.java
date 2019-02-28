@@ -76,7 +76,7 @@ public class MenuDialogFragment extends AppCompatDialogFragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.recyclerview_menu, container, false);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_menuview);
-        btnPDF=view.findViewById(R.id.MainCOPbtn);
+        btnPDF=view.findViewById(R.id.SharePDF);
         btnback=view.findViewById(R.id.MainCOPbackbtn);
         //btnPDF.setOnClickListener((View.OnClickListener) getContext()); // calling onClick()
         // method

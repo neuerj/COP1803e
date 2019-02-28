@@ -18,30 +18,36 @@
     <dimen name="row_padding_vertical">1dp</dimen>
     <dimen name="recylerMargin">4dp</dimen>
     <dimen name="padleft">10dp</dimen>
-    <dimen name="padright">10dp</dimen>
+    <dimen name="padright">8dp</dimen>
+    <dimen name="recyclerguidex1">.24</dimen>
+    <dimen name="recyclerguidex2">.24</dimen>
+    <dimen name="recyclerguidex3">.24</dimen>
 
     //Reset cop button
-    <dimen name="layoutwidthresetbutton">45dp</dimen>
-    <dimen name="layoutheightresetbutton">40dp</dimen>
+    <dimen name="layoutwidthresetbutton">25dp</dimen>
+    <dimen name="layoutheightresetbutton">20dp</dimen>
+
 
     //small cop button
     <dimen name="layoutwidthcopbutton">38dp</dimen>
     <dimen name="layoutheightcopbutton">38dp</dimen>
-    <dimen name="paddingleftcopbutton">1dp</dimen>
-    <dimen name="paddingrightcopbutton">1dp</dimen>
+    <dimen name="maxsmall">50dp</dimen>
+
 
     //medium cop button
     <dimen name="layoutwidthMedcopbutton">62dp</dimen>
     <dimen name="layoutheightMedcopbutton">62dp</dimen>
+    <dimen name="maxmed">70dp</dimen>
 
 
     //main cop button/ring
-    <dimen name="WidthMaincopbutton">70dp</dimen>
-    <dimen name="HeightMaincopbutton">70dp</dimen>
+    <!--<dimen name="WidthMaincopbutton">70dp</dimen>-->
+    <!--<dimen name="HeightMaincopbutton">70dp</dimen>-->
     <dimen name="innerRadiusMaincopbutton">42dp</dimen>
     <dimen name="thicknessMaincopbutton">15dp</dimen>
-    <dimen name="layoutwidthMaincopbutton">70dp</dimen>
-    <dimen name="layoutheightMaincopbutton">70dp</dimen>
+    <dimen name="layoutwidthMaincopbutton">80dp</dimen>
+    <dimen name="layoutheightMaincopbutton">80dp</dimen>
+    <dimen name="maxL">80dp</dimen>
 
 
     //button row bias
@@ -53,16 +59,21 @@
     <dimen name="activity_padding_horizontal">16dp</dimen>
     <dimen name="padd_5">5dp</dimen>
     <dimen name="padd_10">10dp</dimen>
-    <dimen name="padd_20"></dimen>
+    <dimen name="padd_20">20dp</dimen>
 
     <dimen name="ic_delete">20dp</dimen>
     <dimen name="thumbnail">90dp</dimen>
 
     //Balance circle constraints
-    <dimen name="BalanceCircleConstraintRadius">300dp</dimen>
+    <dimen name="BalanceCircleConstraintRadius">130dp</dimen>
+    <dimen name="maxb">60dp</dimen>
+    <dimen name="diamratio">50</dimen>
+    <dimen name="centerbuttonperwidth">.2</dimen>
+    <dimen name="ringbuttonperwidth">.19</dimen>
 
     //PDF view
     //MainCopButton
+    <dimen name="backbuttonperwidth">.3</dimen>
     <dimen name="Width_PDF_Maincopbutton">70dp</dimen>
     <dimen name="Height_PDF_Maincopbutton">70dp</dimen>
     <dimen name="innerRadius_PDF_Maincopbutton">23dp</dimen>
@@ -75,7 +86,7 @@
     <dimen name="paddingBottom_PDF_Maincopbutton">1dp</dimen>
 
     //Today's Special View
-    <dimen name="TextSize_PDF_TodaysSpecial">20sp</dimen>
+    <dimen name="TextSize_PDF_TodaysSpecial">10sp</dimen>
     <dimen name="MarginTop_PDF_TodaysSpecial">8dp</dimen>
     //RecyclerviewvMenu
     <dimen name="MarginTop_PDF_RecyclerViewMenu">1dp</dimen>
@@ -86,8 +97,11 @@
     <dimen name="Marginend_PDF_Nutrients">12dp</dimen>
     <dimen name="Padstart_PDF_Nutrients">2dp</dimen>
     <dimen name="Padend_PDF_Nutrients">2dp</dimen>
-    <dimen name="TextSize_PDF_Nutrients">15dp</dimen>
+    <dimen name="TextSize_PDF_Nutrients">10dp</dimen>
     //Dividers
     <dimen name="MarginTop_PDF_dividers">4dp</dimen>
     <dimen name="MarginBottom_PDF_dividers">4dp</dimen>
+
+    //Recyclerview textformat
+    <dimen name="RVTextSize">8sp</dimen>
 </resources>

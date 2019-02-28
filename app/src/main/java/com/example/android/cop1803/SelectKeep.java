@@ -5,35 +5,44 @@ import android.util.Log;
 import java.lang.reflect.Field;
 
 public class SelectKeep {
-    public static int drawableId=0;
+    public static int drawableId = 0;
 
     public static boolean IsChecked(int currentImg) {
 
-         //We're taking in the User object passed from the parent class
+        //We're taking in the User object passed from the parent class
         //We'll print it out once, then change it, and return
         try {
             Class res = R.drawable.class;
             Field field = res.getField("mic_done_black_24dp");
-           drawableId = field.getInt(null);
-             }
-                catch (Exception e) {
-                Log.e("MyTag", "Failure to get drawable id.", e);
-             }
+            drawableId = field.getInt(null);
+        } catch (Exception e) {
+            Log.e("MyTag", "Failure to get drawable id.", e);
+        }
 
-            if (drawableId == currentImg) {
-                //remove item return to default
-                boolean IsChecked=true;
-                return IsChecked;
-            }
-            else
-            {
-                boolean IsChecked=false;
-                return IsChecked;
-            }
+        if (drawableId == currentImg) {
+            //remove item return to default
+            boolean IsChecked = true;
+            return IsChecked;
+        } else {
+            boolean IsChecked = false;
+            return IsChecked;
+        }
+    }
+
+    public static boolean IsHeader(String header) {
+        String search = "*";
+
+        int headercheck = header.indexOf(search);
+        if (headercheck >= 0) {
+            boolean IsHeader = true;
+            return IsHeader;
+        }else {
+            boolean IsHeader = false;
+            return IsHeader;
+        }
+    }
 
 }
-
-
 
 
 
@@ -64,7 +73,7 @@ public class SelectKeep {
        }
     return IsChecked();
 }*/
-}
+
 
 /*
 

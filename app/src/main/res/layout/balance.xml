@@ -3,367 +3,493 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mybalancelayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginStart="20dp"
-    android:layout_marginEnd="20dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minWidth="450dp"
     android:tag="myfragmenttag"
-
     >
-
     <com.example.android.cop1803.MyViewbutton
         android:id="@+id/x0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scaleX="1.2"
-        android:scaleY="1.2"
-        android:text="@string/x0"
-        android:textAppearance="@style/ButtonFontStylebalance"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:stateListAnimator="@null"
-        android:elevation="6dp"
-        android:translationZ="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/balancecenter"
+        android:elevation="6dp"
+        android:stateListAnimator="@null"
+        android:text="@string/x0"
+        android:textAppearance="@style/ButtonFontStylebalance"
+        android:translationZ="10dp"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="@dimen/centerbuttonperwidth"
+        />
+    <!--<Button
+        android:id="@+id/dummy_view_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dummy view"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="@+id/x0"
+        app:layout_constraintRight_toRightOf="@id/x0"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText"
+        tools:layout_editor_absoluteY="234dp" />-->
 
     <com.example.android.cop1803.MyViewbutton
         android:id="@+id/x1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/balancecenter"
+        android:elevation="6dp"
         android:text="@string/x1"
         android:textAppearance="@style/ButtonFontStylebalance"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:elevation="6dp"
         android:translationZ="10dp"
-        android:background="@drawable/balancecenter"
-        app:layout_constraintCircle="@+id/x0"
-        app:layout_constraintCircleRadius="@dimen/BalanceCircleConstraintRadius"
-        app:layout_constraintCircleAngle="15"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="@dimen/ringbuttonperwidth"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@+id/verticalmid"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!--app:layout_constraintHeight_default="wrap"-->
+    <!--app:layout_constraintHeight_max="@dimen/maxb"-->
+    <!--app:layout_constraintHeight_max="@dimen/maxb"-->
 
-        />
-
-    <com.example.android.cop1803.MyViewbutton
-
-        android:id="@+id/x2"
+    <Button
+        android:id="@+id/dummy_view2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Dummy view"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/x1"
+        app:layout_constraintTop_toTopOf="@id/x1"
+        tools:ignore="HardcodedText"
+        tools:layout_editor_absoluteY="234dp" />
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/balancecenter"
+        android:elevation="6dp"
         android:text="@string/x2"
         android:textAppearance="@style/ButtonFontStylebalance"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:elevation="6dp"
         android:translationZ="10dp"
-        android:background="@drawable/balancecenter"
-        app:layout_constraintCircle="@+id/x0"
-        app:layout_constraintCircleRadius="@dimen/BalanceCircleConstraintRadius"
-        app:layout_constraintCircleAngle="45"
-           />
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="@dimen/ringbuttonperwidth"
+        app:layout_constraintStart_toEndOf="@+id/x1"
+        app:layout_constraintTop_toBottomOf="@id/dummy_view2"
+        />
+    <!--app:layout_constraintHeight_default="wrap"-->
+
+
+
+    <Button
+        android:id="@+id/dummy_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dummy view"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="@+id/x2"
+        app:layout_constraintRight_toRightOf="@id/x2"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText"
+        tools:layout_editor_absoluteY="234dp" />
 
     <com.example.android.cop1803.MyViewbutton
         android:id="@+id/x3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/balancecenter"
+        android:elevation="6dp"
         android:text="@string/x3"
         android:textAppearance="@style/ButtonFontStylebalance"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:elevation="6dp"
         android:translationZ="10dp"
-        android:background="@drawable/balancecenter"
-        app:layout_constraintCircle="@+id/x0"
-        app:layout_constraintCircleRadius="@dimen/BalanceCircleConstraintRadius"
-        app:layout_constraintCircleAngle="75" />
+        app:layout_constraintBottom_toBottomOf="@+id/horizontalmid"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="@dimen/ringbuttonperwidth"
 
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/dummy_view"
+        app:layout_constraintTop_toBottomOf="@+id/x2" />
+    <!--app:layout_constraintHeight_default="wrap"-->
+    <!---->
     <com.example.android.cop1803.MyViewbutton
         android:id="@+id/x4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/balancecenter"
+        android:elevation="6dp"
         android:text="@string/x4"
         android:textAppearance="@style/ButtonFontStylebalance"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:elevation="6dp"
         android:translationZ="10dp"
-        android:background="@drawable/balancecenter"
-        app:layout_constraintCircle="@+id/x0"
-        app:layout_constraintCircleRadius="@dimen/BalanceCircleConstraintRadius"
-        app:layout_constraintCircleAngle="105" />
-
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="@dimen/ringbuttonperwidth"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/dummy_view"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalmid" />
+    <!---->
     <com.example.android.cop1803.MyViewbutton
         android:id="@+id/x5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/x5"
-        android:textAppearance="@style/ButtonFontStylebalance"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:elevation="6dp"
-        android:translationZ="10dp"
         android:background="@drawable/balancecenter"
-        app:layout_constraintCircle="@+id/x0"
-        app:layout_constraintCircleRadius="@dimen/BalanceCircleConstraintRadius"
-        app:layout_constraintCircleAngle="135" />
+        android:elevation="6dp"
+        android:text="@string/x5"
+        android:textAppearance="@style/ButtonFontStylebalance"
+        android:translationZ="10dp"
+        app:layout_constraintBottom_toTopOf="@id/dummy_view3"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="@dimen/ringbuttonperwidth"
+        app:layout_constraintStart_toEndOf="@+id/x6"
+        app:layout_constraintTop_toBottomOf="@+id/x4" />
+    <!--app:layout_constraintHeight_default="wrap"-->
+    <Button
+        android:id="@+id/dummy_view3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dummy view"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/x6"
+        app:layout_constraintTop_toTopOf="@id/x6"
+        tools:ignore="HardcodedText"
+        tools:layout_editor_absoluteY="234dp" />
 
     <com.example.android.cop1803.MyViewbutton
         android:id="@+id/x6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/balancecenter"
+        android:elevation="6dp"
         android:text="@string/x6"
         android:textAppearance="@style/ButtonFontStylebalance"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:elevation="6dp"
         android:translationZ="10dp"
-        android:background="@drawable/balancecenter"
-        app:layout_constraintCircle="@+id/x0"
-        app:layout_constraintCircleRadius="@dimen/BalanceCircleConstraintRadius"
-        app:layout_constraintCircleAngle="165" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="@dimen/ringbuttonperwidth"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/verticalmid" />
 
     <com.example.android.cop1803.MyViewbutton
         android:id="@+id/x7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/balancecenter"
+        android:elevation="6dp"
         android:text="@string/x7"
         android:textAppearance="@style/ButtonFontStylebalance"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:elevation="6dp"
         android:translationZ="10dp"
-        android:background="@drawable/balancecenter"
-        app:layout_constraintCircle="@+id/x0"
-        app:layout_constraintCircleRadius="@dimen/BalanceCircleConstraintRadius"
-        app:layout_constraintCircleAngle="195" />
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/verticalmid"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="@dimen/ringbuttonperwidth"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.example.android.cop1803.MyViewbutton
         android:id="@+id/x8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/balancecenter"
+        android:elevation="6dp"
         android:text="@string/x8"
         android:textAppearance="@style/ButtonFontStylebalance"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:elevation="6dp"
         android:translationZ="10dp"
-        android:background="@drawable/balancecenter"
-        app:layout_constraintCircle="@+id/x0"
-        app:layout_constraintCircleRadius="@dimen/BalanceCircleConstraintRadius"
-        app:layout_constraintCircleAngle="225" />
+        app:layout_constraintBottom_toTopOf="@id/dummy_view3"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@id/x7"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="@dimen/ringbuttonperwidth"
+        app:layout_constraintTop_toBottomOf="@+id/x9" />
+    <!--app:layout_constraintHeight_default="wrap"-->
+    <Button
+        android:id="@+id/dummy_view4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dummy view"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="@+id/x8"
+        app:layout_constraintRight_toRightOf="@id/x8"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText"
+        tools:layout_editor_absoluteY="234dp" />
 
     <com.example.android.cop1803.MyViewbutton
         android:id="@+id/x9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/balancecenter"
+        android:elevation="6dp"
         android:text="@string/x9"
         android:textAppearance="@style/ButtonFontStylebalance"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:elevation="6dp"
         android:translationZ="10dp"
-        android:background="@drawable/balancecenter"
-        app:layout_constraintCircle="@+id/x0"
-        app:layout_constraintCircleRadius="@dimen/BalanceCircleConstraintRadius"
-        app:layout_constraintCircleAngle="255" />
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@id/dummy_view4"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="@dimen/ringbuttonperwidth"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalmid" />
+    <!--app:layout_constraintHeight_default="wrap"-->
 
     <com.example.android.cop1803.MyViewbutton
         android:id="@+id/x10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/balancecenter"
+        android:elevation="6dp"
         android:text="@string/x10"
         android:textAppearance="@style/ButtonFontStylebalance"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:elevation="6dp"
         android:translationZ="10dp"
-        android:background="@drawable/balancecenter"
-        app:layout_constraintCircle="@+id/x0"
-        app:layout_constraintCircleRadius="@dimen/BalanceCircleConstraintRadius"
-        app:layout_constraintCircleAngle="285" />
-
+        app:layout_constraintBottom_toBottomOf="@+id/horizontalmid"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@id/dummy_view4"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="@dimen/ringbuttonperwidth"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/x11" />
+    <!--app:layout_constraintHeight_default="wrap"-->
     <com.example.android.cop1803.MyViewbutton
         android:id="@+id/x11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/balancecenter"
+        android:elevation="6dp"
         android:text="@string/x111"
         android:textAppearance="@style/ButtonFontStylebalance"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:elevation="6dp"
         android:translationZ="10dp"
-        android:background="@drawable/balancecenter"
-        app:layout_constraintCircle="@+id/x0"
-        app:layout_constraintCircleRadius="@dimen/BalanceCircleConstraintRadius"
-        app:layout_constraintCircleAngle="315" />
-
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@id/x12"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="@dimen/ringbuttonperwidth"
+        app:layout_constraintTop_toBottomOf="@id/dummy_view2" />
+    <!--app:layout_constraintHeight_default="wrap"-->
     <com.example.android.cop1803.MyViewbutton
         android:id="@+id/x12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/balancecenter"
+        android:elevation="6dp"
         android:text="@string/x12"
         android:textAppearance="@style/ButtonFontStylebalance"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:elevation="6dp"
         android:translationZ="10dp"
-        android:background="@drawable/balancecenter"
-        app:layout_constraintCircle="@+id/x0"
-        app:layout_constraintCircleRadius="@dimen/BalanceCircleConstraintRadius"
-        app:layout_constraintCircleAngle="345" />
-
-    <include
-        android:id="@+id/balancetext"
-        layout="@layout/balancetextview"
-        android:visibility="invisible"
-
-
-
-        />
-
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/verticalmid"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="@dimen/ringbuttonperwidth"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/x1"
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.example.android.cop1803.LineView
         android:id="@+id/LineViewb1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-
         />
+
     <com.example.android.cop1803.LineView
         android:id="@+id/LineViewb2"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
     <com.example.android.cop1803.LineView
         android:id="@+id/LineViewb3"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
     <com.example.android.cop1803.LineView
         android:id="@+id/LineViewb4"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
     <com.example.android.cop1803.LineView
         android:id="@+id/LineViewb5"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
     <com.example.android.cop1803.LineView
         android:id="@+id/LineViewb6"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
     <com.example.android.cop1803.LineView
         android:id="@+id/LineViewb7"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
     <com.example.android.cop1803.LineView
         android:id="@+id/LineViewb8"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
     <com.example.android.cop1803.LineView
         android:id="@+id/LineViewb9"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
     <com.example.android.cop1803.LineView
         android:id="@+id/LineViewb10"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
     <com.example.android.cop1803.LineView
         android:id="@+id/LineViewb11"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
     <com.example.android.cop1803.LineView
         android:id="@+id/LineViewb12"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+
     <com.example.android.cop1803.Triangle
         android:id="@+id/triangle1"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <com.example.android.cop1803.Triangle
         android:id="@+id/triangle2"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <com.example.android.cop1803.Triangle
         android:id="@+id/triangle3"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <com.example.android.cop1803.Triangle
         android:id="@+id/triangle4"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <com.example.android.cop1803.Triangle
         android:id="@+id/triangle5"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <com.example.android.cop1803.Triangle
         android:id="@+id/triangle6"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <com.example.android.cop1803.Triangle
         android:id="@+id/triangle7"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <com.example.android.cop1803.Triangle
         android:id="@+id/triangle8"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <com.example.android.cop1803.Triangle
         android:id="@+id/triangle9"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <com.example.android.cop1803.Triangle
         android:id="@+id/triangle10"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <com.example.android.cop1803.Triangle
         android:id="@+id/triangle11"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <com.example.android.cop1803.Triangle
         android:id="@+id/triangle12"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-         />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
+    <TextView
+        android:id="@+id/balancetextheader"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
 
+        android:background="@color/description"
+        android:text="test"
+        android:visibility="invisible"
+        android:textAlignment="center"
+        android:textAppearance="@style/ButtonFontStylebalance"
+        android:textColor="@color/white"
+        android:elevation="7dp"
+        android:translationZ="12dp"
+        app:layout_constraintStart_toEndOf="@id/guidelinebalTextVer"
+        app:layout_constraintTop_toBottomOf="@id/guidelinebalTextHoriz" />
 
+    <TextView
+        android:id="@+id/balancetextt"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:elevation="7dp"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        android:scrollbars="vertical"
+        android:text="test"
+        android:textAppearance="@style/ButtonFontStylebalance"
+        android:translationZ="12dp"
+        android:visibility="invisible"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintEnd_toEndOf="@+id/balancetextheader"
 
+        app:layout_constraintStart_toStartOf="@id/balancetextheader"
+        app:layout_constraintTop_toBottomOf="@id/balancetextheader"
+        app:layout_constraintHeight_max="150dp"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelinebalTextHoriz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelinebalTextVer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+    <android.support.constraint.Guideline
+        android:id="@+id/horizontalmid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/verticalmid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 </android.support.constraint.ConstraintLayout>

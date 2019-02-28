@@ -6,7 +6,6 @@ import android.text.SpannableStringBuilder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -40,39 +39,40 @@ public class MenuDialogFragmentAdapter extends RecyclerView.Adapter<MenuDialogFr
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Item item = cartList.get(position);
-        holder.item=cartList.get(position);
-
- /*           holder.fooditem.setText((CharSequence) cartList.get(position));
-        holder.Cholesterol.setText((CharSequence) cartList.get(position));
-        holder.kCal.setText((CharSequence) cartList.get(position));
-        holder.fat.setText((CharSequence) cartList.get(position));
-        holder.protein.setText((CharSequence) cartList.get(position));*/
+        holder.item = cartList.get(position);
 
 
-    String text = holder.item.getName();
-    String textlocation = "MenuView";
-    SpannableStringBuilder builder = g.makeSectionOfTextBold(text, textlocation);
-    holder.fooditem.setText(builder, TextView.BufferType.SPANNABLE);
+        String text = holder.item.getname();
+        if(text=="Today's Special"){text=" ";}
+        String textlocation = "MenuView";
+        SpannableStringBuilder builder = g.makeSectionOfTextBold(text, textlocation);
+        holder.fooditem.setText(builder, TextView.BufferType.SPANNABLE);
 
-    text = holder.item.get_Cho();
-    textlocation = "MenuView";
-    builder = g.makeSectionOfTextBold(text, textlocation);
-    holder.Cholesterol.setText(builder, TextView.BufferType.SPANNABLE);
+        text = holder.item.getnamecat();
+        if(text=="TCOTP"){text=" ";}
+        textlocation = "MenuView";
+        builder = g.makeSectionOfTextBold(text, textlocation);
+        holder.fooditemcat.setText(builder, TextView.BufferType.SPANNABLE);
 
-    text = holder.item.get_KCal();
-    textlocation = "MenuView";
-    builder = g.makeSectionOfTextBold(text, textlocation);
-    holder.kCal.setText(builder, TextView.BufferType.SPANNABLE);
+        text = holder.item.get_Cho();
+        textlocation = "MenuView";
+        builder = g.makeSectionOfTextBold(text, textlocation);
+        holder.Cholesterol.setText(builder, TextView.BufferType.SPANNABLE);
 
-    text = holder.item.get_Fat();
-    textlocation = "MenuView";
-    builder = g.makeSectionOfTextBold(text, textlocation);
-    holder.fat.setText(builder, TextView.BufferType.SPANNABLE);
+        text = holder.item.get_KCal();
+        textlocation = "MenuView";
+        builder = g.makeSectionOfTextBold(text, textlocation);
+        holder.kCal.setText(builder, TextView.BufferType.SPANNABLE);
 
-    text = holder.item.get_Pro();
-    textlocation = "MenuView";
-    builder = g.makeSectionOfTextBold(text, textlocation);
-    holder.protein.setText(builder, TextView.BufferType.SPANNABLE);
+        text = holder.item.get_Fat();
+        textlocation = "MenuView";
+        builder = g.makeSectionOfTextBold(text, textlocation);
+        holder.fat.setText(builder, TextView.BufferType.SPANNABLE);
+
+        text = holder.item.get_Pro();
+        textlocation = "MenuView";
+        builder = g.makeSectionOfTextBold(text, textlocation);
+        holder.protein.setText(builder, TextView.BufferType.SPANNABLE);
 
 
     }
@@ -85,6 +85,7 @@ public class MenuDialogFragmentAdapter extends RecyclerView.Adapter<MenuDialogFr
     public class ViewHolder extends RecyclerView.ViewHolder {
         public Item item;
         public TextView fooditem;
+        public TextView fooditemcat;
         public TextView kCal;
         public TextView Cholesterol;
         public TextView fat;
@@ -95,6 +96,7 @@ public class MenuDialogFragmentAdapter extends RecyclerView.Adapter<MenuDialogFr
             super(itemView);
 
             fooditem = (TextView) itemView.findViewById(R.id.ViewMenuItem);
+            fooditemcat = (TextView) itemView.findViewById(R.id.ViewMenuCat);
             kCal = (TextView) itemView.findViewById(R.id.MenuItemkCal);
             Cholesterol = (TextView) itemView.findViewById(R.id.MenuItemCho);
             fat = (TextView) itemView.findViewById(R.id.MenuItemFat);

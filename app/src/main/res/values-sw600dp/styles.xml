@@ -62,17 +62,24 @@
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/helveticaneue</item>
+    </style>
+    <style name="MainButtonFontStyleSeleted">
+        <item name="android:textSize">9sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/helveticaneue</item>
     </style>
 
-
     <style name="ButtonFontStyle">
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">10sp</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/helveticaneue</item>
     </style>
 
     <style name="ButtonFontStylebalance">
-        <item name="android:textSize">17sp</item>
+        <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -124,12 +131,21 @@
 
         <item name="android:paddingStart">@dimen/cartlist_padding_start</item>
     </style>
-
-
     <style name="itemfont">
-        <item name="android:textSize">8sp</item>
+        <item name="android:textSize">10sp</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textStyle">bold</item>
+        <!--<item name="android:background">@color/white80</item>-->
+    </style>
+
+
+    <style name="RVtextviewformat">
+        <item name="android:textSize">@dimen/RVTextSize</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/helveticaneue</item>
+        <item name="android:textAlignment">textStart</item>
+
         <!--<item name="android:background">@color/white80</item>-->
     </style>
 

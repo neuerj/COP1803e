@@ -1,14 +1,8 @@
 package com.example.android.cop1803;
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.util.AttributeSet;
-import android.view.View;
-
+/*
 public class TriangleView extends View {
-    //private Paint paint = new Paint();
+  //private Paint paint = new Paint();
     private Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
 
@@ -58,3 +52,4 @@ public class TriangleView extends View {
     }
 }
 
+*/

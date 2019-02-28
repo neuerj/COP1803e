@@ -1,14 +1,15 @@
 package com.example.android.cop1803;
 
 import android.app.Application;
-import android.text.TextUtils;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.Volley;
 
 public class MyApplication extends Application {
-    private static MyApplication mInstance;
+
+
+
+
+
+
+    /*private static MyApplication mInstance;
     public static final String TAG = MyApplication.class
             .getSimpleName();
 
@@ -52,5 +53,5 @@ public class MyApplication extends Application {
         if (mRequestQueue != null) {
             mRequestQueue.cancelAll(tag);
         }
-    }
+    }*/
 }

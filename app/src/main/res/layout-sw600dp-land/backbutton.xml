@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginBottom="8dp"
+        android:elevation="3dp"
+        android:rotation="270"
+        android:src="@drawable/arrowleft"
+        app:layout_constraintBottom_toBottomOf="@+id/MainCOPbackbtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.51" />
+
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/MainCOPbackbtn"
+        android:layout_width="@dimen/Width_PDF_Maincopbutton"
+        android:layout_height="@dimen/Height_PDF_Maincopbutton"
+        android:layout_marginStart="@dimen/MarginStart_PDF_Maincopbutton"
+        android:layout_marginTop="@dimen/MarginTop_PDF_Maincopbutton"
+        android:background="@drawable/shapecopmainbuttondialogmenu"
+
+        android:textAppearance="@style/MainButtonFontStyle"
+        app:layout_constraintBottom_toTopOf="@id/divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+</android.support.constraint.ConstraintLayout>

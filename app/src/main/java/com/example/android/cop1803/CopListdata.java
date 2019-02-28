@@ -6,7 +6,8 @@ package com.example.android.cop1803;
 
 public class CopListdata {
     private  String _KCal;
-    private String _itemname;
+    private String itemnamecat;
+    private String itemname;
     private String _Fat;
     private String _Cho;
     private String _Pro;
@@ -15,22 +16,35 @@ public class CopListdata {
     private static boolean isSelected_1stLevel = false;
 
 //..constructer;
-    public CopListdata(String itemname , String KCal, String Fat, String Cho,String Pro, int imageId)
+    public CopListdata(String itemnamecat , String itemname , String KCal, String Fat, String Cho,
+                       String Pro, int imageId)
 //           ,String itemclass,int level)
     {
-        this._itemname = itemname;
+        this.itemnamecat = itemnamecat;
+        this.itemname = itemname;
         this._KCal = KCal;
         this._Fat = Fat;
         this._Cho = Cho;
         this._Pro = Pro;
         this.imageId=imageId;
     }
+    public String get_itemnamecat()
+    {
+        return itemnamecat;
+    }
+    public void set_itemnamecat(String itemnamecat) {this.itemnamecat = itemnamecat; }
+
+
+
 
     public String get_itemname()
     {
-        return _itemname;
+        return itemname;
     }
-    public void set_itemname(String itemname) {this._itemname = itemname; }
+    public void set_itemname(String itemname) {this.itemname = itemname; }
+
+
+
 
     public String get_KCal()
    {
@@ -39,7 +53,7 @@ public class CopListdata {
 
     public void set_KCal(String KCal)
     {
-        this._itemname = KCal;
+        this.itemname = KCal;
     }
 
 
@@ -49,7 +63,7 @@ public class CopListdata {
     }
     public void set_Fat(String Fat)
     {
-        this._itemname = Fat;
+        this.itemname = Fat;
     }
 
 
@@ -59,7 +73,7 @@ public class CopListdata {
     }
     public void set_Cho(String Cho)
     {
-        this._itemname = Cho;
+        this.itemname = Cho;
     }
 
 
@@ -69,7 +83,7 @@ public class CopListdata {
     }
     public void set_Pro(String Pro)
     {
-        this._itemname = Pro;
+        this.itemname = Pro;
     }
 
     public int getImageId(){return imageId;}

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mybalancewheel"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineVerticalCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="@dimen/verticalguidecenter" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelinebalHorizontalCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="@dimen/verticalguidecenter" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelinebalHorizontalTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".01" />
+
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x0"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/balancecenter"
+        android:elevation="6dp"
+        android:stateListAnimator="@null"
+        android:text="@string/x0"
+        android:textAppearance="@style/ButtonFontStylebalance"
+        android:translationZ="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent=".13" />
+
+
+
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/balancecenter"
+        android:elevation="6dp"
+        android:text="@string/x1"
+        android:textAppearance="@style/ButtonFontStylebalance"
+        android:translationZ="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias=".05"
+        app:layout_constraintStart_toEndOf="@+id/guidelineVerticalCenter"
+        app:layout_constraintTop_toBottomOf="@+id/guidelinebalHorizontalTop"
+        app:layout_constraintVertical_bias=".0"
+        app:layout_constraintWidth_percent=".1" />
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/x2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/balancecenter"
+        android:elevation="6dp"
+        android:text="@string/x1"
+        android:textAppearance="@style/ButtonFontStylebalance"
+        android:translationZ="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias=".05"
+        app:layout_constraintStart_toEndOf="@+id/x1"
+        app:layout_constraintTop_toBottomOf="@+id/guidelinebalHorizontalTop"
+        app:layout_constraintVertical_bias=".06"
+        app:layout_constraintWidth_percent=".1" />
+
+
+
+
+
+
+    <!--<com.example.android.cop1803.LineView
+        android:id="@+id/LineViewb1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:rotation="45"
+        app:layout_constraintBottom_toTopOf="@+id/x0"
+        app:layout_constraintEnd_toEndOf="@+id/x1"
+        app:layout_constraintStart_toStartOf="@+id/x1"
+        app:layout_constraintTop_toTopOf="@+id/x1"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintWidth_percent=".06"
+
+        />-->
+
+
+</android.support.constraint.ConstraintLayout>

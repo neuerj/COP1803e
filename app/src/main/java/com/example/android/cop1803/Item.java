@@ -9,6 +9,7 @@ import android.os.Parcelable;
 
 public class Item implements Parcelable {
   //  int id;
+    String namecat;
     String name;
     String description;
     String KCal;
@@ -18,8 +19,10 @@ public class Item implements Parcelable {
    // double price;
   //  String thumbnail;
 
-    public Item(String name, String description, String KCal, String Fat, String Cho,String Pro) {
+    public Item(String namecat,String name, String description, String KCal, String Fat, String
+            Cho,String Pro) {
         super();
+        this.namecat=namecat;
         this.name=name;
         this.description=description;
         this.KCal = KCal;
@@ -32,10 +35,17 @@ public class Item implements Parcelable {
         super();
     }
 
-    public String getName() {
+    public String getnamecat() {
+        return namecat;
+    }
+    public void setnamecat(String namecat) {
+        this.namecat = namecat;
+    }
+
+    public String getname() {
         return name;
     }
-    public void setName(String name) {
+    public void setname(String name) {
         this.name = name;
     }
 
@@ -105,6 +115,7 @@ public class Item implements Parcelable {
    }
     private void readFromParcel(Parcel in) {
         this.name=in.readString();
+        this.namecat=in.readString();
         this.description=in.readString();
         this.KCal = in.readString();
         this.Fat = in.readString();
@@ -128,6 +139,7 @@ public class Item implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(name);
+        dest.writeString(namecat);
         dest.writeString(description);
         dest.writeString(KCal);
         dest.writeString(Fat);

@@ -3,7 +3,7 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin_start">10dp</dimen>
     <dimen name="activity_horizontal_margin_end">40dp</dimen>
-    <dimen name="activity_vertical_margin">60dp</dimen>
+    <dimen name="activity_vertical_margin">46dp</dimen>
     <dimen name="cartlist_margin">30dp</dimen>
     <dimen name="cartlist_width">120dp</dimen>
     <dimen name="cartlist_margin_start">4dp</dimen>
@@ -19,30 +19,38 @@
     <dimen name="recylerMargin">4dp</dimen>
     <dimen name="padleft">10dp</dimen>
     <dimen name="padright">10dp</dimen>
+    <dimen name="recyclerguidex1">.24</dimen>
+    <dimen name="recyclerguidex2">.24</dimen>
+    <dimen name="recyclerguidex3">.24</dimen>
 
     //Reset cop button
     <dimen name="layoutwidthresetbutton">45dp</dimen>
     <dimen name="layoutheightresetbutton">40dp</dimen>
 
+
     //small cop button
     <dimen name="layoutwidthcopbutton">38dp</dimen>
     <dimen name="layoutheightcopbutton">38dp</dimen>
-    <dimen name="paddingleftcopbutton">1dp</dimen>
-    <dimen name="paddingrightcopbutton">1dp</dimen>
+    <dimen name="maxsmall">50dp</dimen>
+
 
     //medium cop button
     <dimen name="layoutwidthMedcopbutton">62dp</dimen>
     <dimen name="layoutheightMedcopbutton">62dp</dimen>
+    <dimen name="maxmed">70dp</dimen>
+
 
     //main cop button/ring
     <dimen name="WidthMaincopbutton">70dp</dimen>
     <dimen name="HeightMaincopbutton">70dp</dimen>
     <dimen name="innerRadiusMaincopbutton">42dp</dimen>
     <dimen name="thicknessMaincopbutton">15dp</dimen>
-    <dimen name="layoutwidthMaincopbutton">70dp</dimen>
-    <dimen name="layoutheightMaincopbutton">70dp</dimen>
-    <dimen name="paddingleftmaincopbutton">2dp</dimen>
-    <dimen name="paddingrightmaincopbutton">2dp</dimen>
+    <dimen name="layoutwidthMaincopbutton">80dp</dimen>
+    <dimen name="layoutheightMaincopbutton">80dp</dimen>
+    <dimen name="max">70dp</dimen>
+    <dimen name="maxL">80dp</dimen>
+
+
 
     //button row bias
     <dimen name="bias1c">.15</dimen>
@@ -53,16 +61,25 @@
     <dimen name="activity_padding_horizontal">16dp</dimen>
     <dimen name="padd_5">5dp</dimen>
     <dimen name="padd_10">10dp</dimen>
-    <dimen name="padd_20"></dimen>
+    <dimen name="padd_20">5dp</dimen>
 
     <dimen name="ic_delete">20dp</dimen>
     <dimen name="thumbnail">90dp</dimen>
 
     //Balance circle constraints
-    <dimen name="BalanceCircleConstraintRadius">300dp</dimen>
+    <dimen name="BalanceCircleConstraintRadius">100dp</dimen>
+    <dimen name="maxb">60dp</dimen>
+    <dimen name="diamratio">20</dimen>
+    <dimen name="centerbuttonperwidth">.15</dimen>
+    <dimen name="ringbuttonperwidth">.10</dimen>
+
+    //Balance circle guides
+    <dimen name="verticalguidecenter">.5</dimen>
+
 
     //PDF view
     //MainCopButton
+    <dimen name="backbuttonperwidth">.2</dimen>
     <dimen name="Width_PDF_Maincopbutton">70dp</dimen>
     <dimen name="Height_PDF_Maincopbutton">70dp</dimen>
     <dimen name="innerRadius_PDF_Maincopbutton">23dp</dimen>
@@ -75,19 +92,22 @@
     <dimen name="paddingBottom_PDF_Maincopbutton">1dp</dimen>
 
     //Today's Special View
-    <dimen name="TextSize_PDF_TodaysSpecial">20sp</dimen>
+    <dimen name="TextSize_PDF_TodaysSpecial">10sp</dimen>
     <dimen name="MarginTop_PDF_TodaysSpecial">8dp</dimen>
     //RecyclerviewvMenu
-    <dimen name="MarginTop_PDF_RecyclerViewMenu">20dp</dimen>
+    <dimen name="MarginTop_PDF_RecyclerViewMenu">1dp</dimen>
     //Nutrients kCal,Fat,Cho,Pro
     <dimen name="Margintop_PDF_Nutrients">4dp</dimen>
     <dimen name="Marginbottom_PDF_Nutrients">4dp</dimen>
-    <dimen name="Marginstart_PDF_Nutrients">8dp</dimen>
-    <dimen name="Marginend_PDF_Nutrients">8dp</dimen>
+    <dimen name="Marginstart_PDF_Nutrients">12dp</dimen>
+    <dimen name="Marginend_PDF_Nutrients">12dp</dimen>
     <dimen name="Padstart_PDF_Nutrients">2dp</dimen>
     <dimen name="Padend_PDF_Nutrients">2dp</dimen>
-    <dimen name="TextSize_PDF_Nutrients">15dp</dimen>
+    <dimen name="TextSize_PDF_Nutrients">10dp</dimen>
     //Dividers
     <dimen name="MarginTop_PDF_dividers">4dp</dimen>
     <dimen name="MarginBottom_PDF_dividers">4dp</dimen>
+
+    //Recyclerview textformat
+    <dimen name="RVTextSize">8sp</dimen>
 </resources>

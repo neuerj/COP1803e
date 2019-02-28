@@ -1,17 +1,19 @@
 package com.example.android.cop1803;
 
-import android.app.Activity;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Color;
-import android.graphics.Movie;
-import android.graphics.PointF;
+import android.graphics.Point;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.os.Trace;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
+import android.support.constraint.Guideline;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
@@ -24,26 +26,26 @@ import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.SpannableStringBuilder;
+import android.util.DisplayMetrics;
 import android.util.Log;
-import android.util.TypedValue;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import static javax.xml.xpath.XPathFactory.newInstance;
 
 
 public class MainActivity extends AppCompatActivity implements OnClickListener, RecyclerItemTouchHelper.RecyclerItemTouchHelperListener {
@@ -59,14 +61,19 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     public static ArrayList<Item> cartList = new ArrayList<Item>();
     public static ArrayList<String> buttonque = new ArrayList<String>();
     public static ArrayList<Button> cartlistbuttonobjectque = new ArrayList<Button>();
-    public static ArrayList<String> buttonquedefaulttext = new ArrayList<String>();
-    public static ArrayList<String> currentbuttonBaseText = new ArrayList<String>();
-    public static ArrayList<Integer> buttonID = new ArrayList<Integer>();
+//    public static ArrayList<String> buttonquedefaulttext = new ArrayList<String>();
+//    public static ArrayList<String> currentbuttonBaseText = new ArrayList<String>();
+//    public static ArrayList<Integer> buttonID = new ArrayList<Integer>();
+//    public static ArrayList<Integer> buttonwidheight = new ArrayList<Integer>();
     public static final String TAG = "JJJMMMNNN";
     public int c=0,s=0;
     public TextView slidetodeletemsg;
     public ConstraintSet mConstraintSetrecy1 = new ConstraintSet(); // create a Constraint Set clone
+    public ConstraintSet set = new ConstraintSet(); // create a Constraint Set clone
     public ConstraintLayout mConstraintLayout; // cache the ConstraintLayout
+    public ConstraintLayout newLayoutParams;
+    Guideline guideline;
+
 
     Globals g =Globals.getInstance();
     public String btnFoodClass;
@@ -91,19 +98,24 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     String btextall;
     String btnCurrentbaseName;
     int numberofselections;
+    int StatusBarHeight;
+    int NavYpixel;
+    int NavYreal;
+    boolean firstpass=true;
+
 
 
 
     public Button ResetBtn;
 
-    LineView mLineView1021, mLineView1022, mLineView1023, mLineView1024, mLineView1025,mLineView1026,mLineView1027,
+   LineView mLineView1021, mLineView1022, mLineView1023, mLineView1024, mLineView1025,mLineView1026,mLineView1027,
              mLineView2131,mLineView2231,mLineView2331,mLineView2431,mLineView2531,mLineView2631,mLineView2731,
              mLineView3141,mLineView3142,mLineView3143,mLineView3144,mLineView3145;
-    List<LineView> mLine = new ArrayList<>();
+ /*    List<LineView> mLine = new ArrayList<>();
 
     PointF pointA;
     PointF pointB;
-    Map<String, Button> vars = new HashMap<String, Button>();
+    Map<String, Button> vars = new HashMap<String, Button>();*/
 
     static TextView userMenu;
     public final static String LIST_STATE_KEY = "recycler_list_state";
@@ -117,46 +129,40 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       /* fragmentSimple=new BalanceOverlay();
-        if (savedInstanceState != null) { // saved instance state, fragment may exist
-            // look up the instance that already exists by tag
-            fragmentSimple = (BalanceOverlay)
-                    getSupportFragmentManager().findFragmentByTag(SIMPLE_FRAGMENT_TAG);
-        } else if (fragmentSimple == null) {
-            // only create fragment if they haven't been instantiated already
-            fragmentSimple = new BalanceOverlay();
-        }
 
-        if (!fragmentSimple.isInLayout()) {
-            getSupportFragmentManager()
-                   .beginTransaction()
-                    .replace(R.id.container, fragmentSimple, SIMPLE_FRAGMENT_TAG)
-                    .commit();
-        }
-*/
+
        final LayoutCustom mainlayout=(LayoutCustom) this.getLayoutInflater().inflate(R.layout.activity_main, null);
         //**************
         // set a global layout listener which will be called when the layout pass is completed and the view is drawn
         mainlayout.getViewTreeObserver().addOnGlobalLayoutListener(
                 new ViewTreeObserver.OnGlobalLayoutListener() {
                     public void onGlobalLayout() {
-                        mAdapter = new CartListAdapter(MainActivity.this, cartList);
                         recyclerViewMenu.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                        mAdapter = new CartListAdapter(MainActivity.this, cartList);
                         recyclerViewMenu.setItemAnimator(new DefaultItemAnimator());
                         recyclerViewMenu.addItemDecoration(new DividerItemDecoration(MainActivity.this, DividerItemDecoration.VERTICAL));
                         recyclerViewMenu.setAdapter(mAdapter);
                         g.setCurrentclick("initclick");
                         g.setRecyclertouch(GlobalVariables.FALSE);
-                        Cyclebuttons(mainlayout);
-                        g.setBtn0width(btnx31.getWidth());
+                        //g.setBtn0width(btnx31.getWidth());
                         g.setViewlinesbeingdrawn("mainview");
-                        drawLines(mLine);
+                        g.setFirstpass(false);
+
+                       //drawLines(mLine);
+
+                      // mainlayout.invalidate();
                         //Remove the listener before proceeding
                         mainlayout.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                    }
+
+                       // ViewGroup vg = findViewById (R.id.mylayoutcustom);
+                        //vg.invalidate();
+                     }
                 }
         );
+
         setContentView(mainlayout);
+
+
 
 //************ menulist *********
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -169,67 +175,57 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         recyclerViewMenu = findViewById(R.id.recycler_viewItemList);
         coordinatorLayout = findViewById(R.id.coordinator_layout);
         if(cartList.size()==0) {
-            cartList.add(new Item("Today's Special", "", "", "", "", ""));
+            cartList.add(new Item("TCOTP","Today's Special", "", "", "", "", ""));
         }
         slidetodeletemsg=findViewById(R.id.textView2);
         Button ResetBtn =findViewById(R.id.ResetBtn);
 
 
         ResetBtn.setOnClickListener(new OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 emptyCart(v);
             }
-
-//            @Override
-//            public void onClick(View v,CartListAdapter.MyViewHolder viewHolder) {
-//
-//            }
         });
-//        public void onClick(View v,CartListAdapter.MyViewHolder viewHolder) {
-//
-//        }
+
         // adding item touch helper
         // only ItemTouchHelper.LEFT added to detect Right to Left swipe
         // if you want both Right -> Left and Left -> Right
         // add pass ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT as param
         ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new RecyclerItemTouchHelper(0, ItemTouchHelper.LEFT, this);
         new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerViewMenu);
-        //prepareCart();
 
-        // making http call and fetching menu json
-
-//************************
-
+//buttons and Lines
         btnx10=findViewById(R.id.MainCOPbtn);
         btnx10.setOnClickListener(this); // calling onClick() method
         btnx21=findViewById(R.id.x21);
         btnx21.setOnClickListener(this); // calling onClick() method
         btnx22=findViewById(R.id.x22);
         btnx22.setOnClickListener(this); // calling onClick() method
-        btnx23=(Button)findViewById(R.id.x23);
+        btnx23= findViewById(R.id.x23);
         btnx23.setOnClickListener(this); // calling onClick() method
-        btnx24=(Button)findViewById(R.id.x24);
+        btnx24= findViewById(R.id.x24);
         btnx24.setOnClickListener(this); // calling onClick() method
-        btnx25=(Button)findViewById(R.id.x25);
+        btnx25= findViewById(R.id.x25);
         btnx25.setOnClickListener(this); // calling onClick() method
-        btnx26=(Button)findViewById(R.id.x26);
+        btnx26= findViewById(R.id.x26);
         btnx26.setOnClickListener(this); // calling onClick() method
-        btnx27=(Button)findViewById(R.id.x27);
+        btnx27= findViewById(R.id.x27);
         btnx27.setOnClickListener(this); // calling onClick() method
-        btnx31=(Button)findViewById(R.id.x31);
+        btnx31= findViewById(R.id.x31);
         btnx31.setOnClickListener(this); // calling onClick() method
-        btnx41=(Button)findViewById(R.id.x41);
+        btnx41= findViewById(R.id.x41);
         btnx41.setOnClickListener(this); // calling onClick() method
-        btnx42=(Button)findViewById(R.id.x42);
+        btnx42= findViewById(R.id.x42);
         btnx42.setOnClickListener(this); // calling onClick() method
-        btnx43=(Button)findViewById(R.id.x43);
+        btnx43= findViewById(R.id.x43);
         btnx43.setOnClickListener(this); // calling onClick() method
-        btnx44=(Button)findViewById(R.id.x44);
+        btnx44= findViewById(R.id.x44);
         btnx44.setOnClickListener(this); // calling onClick() method
-        btnx45=(Button)findViewById(R.id.x45);
+        btnx45= findViewById(R.id.x45);
         btnx45.setOnClickListener(this); // calling onClick() method
+
+
 
         mLineView1021=findViewById(R.id.LineView1021);
         mLineView1022=findViewById(R.id.LineView1022);
@@ -238,8 +234,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         mLineView1025=findViewById(R.id.LineView1025);
         mLineView1026=findViewById(R.id.LineView1026);
         mLineView1027=findViewById(R.id.LineView1027);
-        mLine.add(mLineView1021);mLine.add(mLineView1022);mLine.add(mLineView1023);mLine.add(mLineView1024);mLine.add
-                (mLineView1025);mLine.add(mLineView1026);mLine.add(mLineView1027);
+       /* mLine.add(mLineView1021);mLine.add(mLineView1022);mLine.add(mLineView1023);mLine.add(mLineView1024);mLine.add
+                (mLineView1025);mLine.add(mLineView1026);mLine.add(mLineView1027);*/
 
         mLineView2131=findViewById(R.id.LineView2131);
         mLineView2231=findViewById(R.id.LineView2231);
@@ -248,21 +244,18 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         mLineView2531=findViewById(R.id.LineView2531);
         mLineView2631=findViewById(R.id.LineView2631);
         mLineView2731=findViewById(R.id.LineView2731);
-        mLine.add(mLineView2131); mLine.add(mLineView2231); mLine.add(mLineView2331); mLine.add(mLineView2431); mLine.add
-                (mLineView2531); mLine.add(mLineView2631); mLine.add(mLineView2731);
+/*        mLine.add(mLineView2131); mLine.add(mLineView2231); mLine.add(mLineView2331); mLine.add(mLineView2431); mLine.add
+                (mLineView2531); mLine.add(mLineView2631); mLine.add(mLineView2731);*/
 
         mLineView3141=findViewById(R.id.LineView3141);
         mLineView3142=findViewById(R.id.LineView3142);
         mLineView3143=findViewById(R.id.LineView3143);
         mLineView3144=findViewById(R.id.LineView3144);
         mLineView3145=findViewById(R.id.LineView3145);
-        mLine.add(mLineView3141);mLine.add(mLineView3142);mLine.add(mLineView3143);mLine.add(mLineView3144);mLine.add
-                (mLineView3145);
+       /* mLine.add(mLineView3141);mLine.add(mLineView3142);mLine.add(mLineView3143);mLine.add(mLineView3144);mLine.add
+                (mLineView3145);*/
 
-//        mlines = new LineView[]{mLineView1021, mLineView1022, mLineView1023, mLineView1024, mLineView1025, mLineView1026,
-//                mLineView1027};
-
-        vars.put("btnx10",btnx10);
+       /* vars.put("btnx10",btnx10);
         vars.put("btnx21",btnx21);
         vars.put("btnx22",btnx22);
         vars.put("btnx23",btnx23);
@@ -275,9 +268,58 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         vars.put("btnx42",btnx42);
         vars.put("btnx43",btnx43);
         vars.put("btnx44",btnx44);
-        vars.put("btnx45",btnx45);
+        vars.put("btnx45",btnx45);*/
+
+        //initilize recyclerview adapters
+        recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+        recyclerView.setHasFixedSize(true);
+        adapter = new CopMyAdapterMain(this, coplistdata, new CopMyAdapterMain.OnCopClickListner() {
+            @Override
+            public void onClicked(CopListdata copchild) {
+
+            }
+        });
+        recyclerView.setAdapter(adapter);
+
+        recycler_view2 = findViewById(R.id.recycler_view2);
+        recycler_view2.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+        recycler_view2.setHasFixedSize(true);
+        adapterchild = new CopMyAdapterChild(coplistdatachild, MainActivity.this);
+        recycler_view2.setAdapter(adapterchild);
+
+        recyclerViewMenu.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+        mAdapter = new CartListAdapter(MainActivity.this, cartList);
+        recyclerViewMenu.setAdapter(mAdapter);
 
 
+
+    }
+/*    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        final View decorView = getWindow().getDecorView();
+        if (hasFocus) {
+            decorView.setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);}
+        g.setFirstpass(true);
+
+
+    }*/
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (listState != null ) {
+            recyclerViewMenu.getLayoutManager().onRestoreInstanceState(listState);
+            /*final int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+            final View decorView = getWindow().getDecorView();
+            decorView.setSystemUiVisibility(uiOptions);*/
+        }
     }
 
     @Override
@@ -289,9 +331,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
                 btnFoodClass= "MainCOPbtn";
                 buttontextdefault= getResources().getString(R.string.x11MainCOPtext);
                 buttonid=v.getId();
+                Button button = findViewById(v.getId());
+                //didTapButton(v,button);
                 recyecleviews(btnFoodClass,btnx10,btnx10text,buttontextdefault,buttonid);
-                float biasedValue = 0.0f;
-                int butConstraint=v.getId();
                 repositionRv(btnFoodClass);
 
                 break;
@@ -300,112 +342,138 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
                  btnFoodClass= "btnx21";
                 buttontextdefault= getResources().getString(R.string.x21BreadingCrustCoatingsWraps);
                 buttonid=v.getId();
+                button = findViewById(v.getId());
+                //didTapButton(v,button);
                 recyecleviews(btnFoodClass,btnx21,btnx21text,buttontextdefault,buttonid);
-                biasedValue = 0.3f;
-                butConstraint=v.getId();
+             Trace.beginSection("RepositionRV");
                 repositionRv(btnFoodClass);
+             Trace.endSection();
                 break;
 
             case R.id.x22:
                 btnFoodClass= "btnx22";
                 buttontextdefault= getResources().getString(R.string.x22CuttingandManipulation);
                 buttonid=v.getId();
+                button = findViewById(v.getId());
+               // didTapButton(v,button);
                 recyecleviews(btnFoodClass,btnx22,btnx22text,buttontextdefault,buttonid);
-                butConstraint=v.getId();
                 repositionRv(btnFoodClass);
                 break;
             case R.id.x23:
                 btnFoodClass= "btnx23";
                 buttontextdefault= getResources().getString(R.string.x23DryRubsandStuffings);
                 buttonid=v.getId();
+                button = findViewById(v.getId());
+                //didTapButton(v,button);
                 recyecleviews(btnFoodClass,btnx23,btnx23text,buttontextdefault,buttonid);
-                butConstraint=v.getId();
                 repositionRv(btnFoodClass);
                 break;
             case R.id.x24:
                 btnFoodClass= "btnx24";
                 buttontextdefault= getResources().getString(R.string.x24HerbandSpicePastes);
                 buttonid=v.getId();
+                button = findViewById(v.getId());
+               //didTapButton(v,button);
                 recyecleviews(btnFoodClass,btnx24,btnx24text,buttontextdefault,buttonid);
-                butConstraint=v.getId();
                 repositionRv(btnFoodClass);
                 break;
             case R.id.x25:
                 btnFoodClass= "btnx25";
                 buttontextdefault= getResources().getString(R.string.x25MarinadesandBrines);
                 buttonid=v.getId();
+                button = findViewById(v.getId());
+                //didTapButton(v,button);
                 recyecleviews(btnFoodClass,btnx25,btnx25text,buttontextdefault,buttonid);
-                butConstraint=v.getId();
                 repositionRv(btnFoodClass);
                 break;
             case R.id.x26:
                 btnFoodClass= "btnx26";
                 buttontextdefault= getResources().getString(R.string.x26SpicesandSpiceCrusts);
                 buttonid=v.getId();
+                button = findViewById(v.getId());
+                //didTapButton(v,button);
                 recyecleviews(btnFoodClass,btnx26,btnx26text,buttontextdefault,buttonid);
-                butConstraint=v.getId();
                 repositionRv(btnFoodClass);
                 break;
             case R.id.x27:
                 btnFoodClass= "btnx27";
                 buttontextdefault= getResources().getString(R.string.x27Balance);
+                button = findViewById(v.getId());
+                //didTapButton(v,button);
                 showBalanceDialog();
-
-                //recyecleviews(btnFoodClass,btnx27,btnx27text,buttontextdefault);
-                butConstraint=v.getId();
                 repositionRv(btnFoodClass);
                 break;
             case R.id.x31:
                 btnFoodClass= "btnx31";
                 buttontextdefault=getResources().getString(R.string.x31CookingTechniques);
                 buttonid=v.getId();
+                button = findViewById(v.getId());
+                //didTapButton(v,button);
                 recyecleviews(btnFoodClass,btnx31,btnx31text,buttontextdefault,buttonid);
-                butConstraint=v.getId();
                 repositionRv(btnFoodClass);
+
                 break;
             case R.id.x41:
                 btnFoodClass= "btnx41";
                 buttontextdefault= getResources().getString(R.string.x41SaladsRelishes);
                 buttonid=v.getId();
+                button = findViewById(v.getId());
+                //didTapButton(v,button);
                 recyecleviews(btnFoodClass,btnx41,btnx41text,buttontextdefault,buttonid);
-                butConstraint=v.getId();
                 repositionRv(btnFoodClass);
                 break;
             case R.id.x42:
                 btnFoodClass= "btnx42";
                 buttontextdefault= getResources().getString(R.string.x42StarchesGrains);
                 buttonid=v.getId();
+                button = findViewById(v.getId());
+                //didTapButton(v,button);
                 recyecleviews(btnFoodClass,btnx42,btnx42text,buttontextdefault,buttonid);
-                butConstraint=v.getId();
                 repositionRv(btnFoodClass);
                 break;
             case R.id.x43:
                 btnFoodClass= "btnx43";
                 buttontextdefault= getResources().getString(R.string.x43Garnishes);
                 buttonid=v.getId();
+                button = findViewById(v.getId());
+                //didTapButton(v,button);
                 recyecleviews(btnFoodClass,btnx43,btnx43text,buttontextdefault,buttonid);
-                butConstraint=v.getId();
                 repositionRv(btnFoodClass);
                 break;
             case R.id.x44:
                 btnFoodClass= "btnx44";
                 buttontextdefault=getResources().getString(R.string.x44SaucesSalsa);
                 buttonid=v.getId();
+                button = findViewById(v.getId());
+                //didTapButton(v,button);
                 recyecleviews(btnFoodClass,btnx44,btnx44text,buttontextdefault,buttonid);
-                butConstraint=v.getId();
                 repositionRv(btnFoodClass);
                 break;
             case R.id.x45:
                 btnFoodClass= "btnx45";
                 buttontextdefault=getResources().getString(R.string.x45VegetablesFruit);
                 buttonid=v.getId();
+                button = findViewById(v.getId());
+                //didTapButton(v,button);
                 recyecleviews(btnFoodClass,btnx45,btnx45text,buttontextdefault,buttonid);
-                butConstraint=v.getId();
                 repositionRv(btnFoodClass);
                 break;
             default:
                 break;
         }}
+
+
+    public void didTapButton(View view,Button button) {
+        //Button button = (Button)findViewById(R.id.button);
+
+        final Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
+
+        // Use bounce interpolator with amplitude 0.2 and frequency 20
+        MyBounceInterpolator interpolator = new MyBounceInterpolator(0.2, 30);
+        myAnim.setInterpolator(interpolator);
+
+        button.startAnimation(myAnim);
+    }
 
     public void recyecleviews(final String foodclass,Button curbutton,ArrayList
             currentbuttontext,String buttontextdefault,int currentbuttonid){
@@ -427,9 +495,13 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         recyclerView.setHasFixedSize(true);
         recyclerView.bringToFront();
 
+        //String FC=foodclass;
+        //new MyTask().execute(FC);
+
         coplistdata = CopData.LoadDataCopButton(foodclass);
+
         recyclerView.addItemDecoration(new DividerItemDecoration(MainActivity.this, LinearLayoutManager.VERTICAL));
-        adapter = new CopMyAdapterMain(this, coplistdata, new CopMyAdapterMain.OnCopClickListner() {
+    adapter = new CopMyAdapterMain(this, coplistdata, new CopMyAdapterMain.OnCopClickListner() {
 
             @Override
             public void onClicked(CopListdata copchild) {
@@ -437,39 +509,121 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
                 boolean isCheck = SelectKeep.IsChecked(img);
                 if (!isCheck) {
                     String fooditem2 =foodclass.trim() + "_" + copchild.get_itemname().trim();
-                        // String fooditem2kcal = copchild.get_KCal().trim();
-                       /*  String fooditem2fat = copchild.get_itemname().trim();
-                        String fooditem2cho = copchild.get_itemname().trim();
-                        String fooditem2pro = copchild.get_itemname().trim();*/
-
                     // TODO : Update your another adapter of another recyclerview.
                     recycler_view2 = findViewById(R.id.recycler_view2);
                     recycler_view2.setLayoutManager(new LinearLayoutManager(MainActivity.this));
                     recycler_view2.setHasFixedSize(true);
                     recycler_view2.bringToFront();
-                    coplistdatachild = CopDataSub.LoadDataCopChildButton(fooditem2);
+
+                    String but= btnFoodClass.substring(btnFoodClass.length() - 2);
+                    switch (but) {
+                        case ("26"):
+                        case ("31"):
+                        case ("41"):
+                        case ("42"):
+                        case ("43"):
+                        case ("44"):
+                        case ("45"):
+                            coplistdatachild = CopDataSub2.LoadDataCopChildButton2(fooditem2);
+                            break;
+                        default:
+                            coplistdatachild = CopDataSub.LoadDataCopChildButton(fooditem2);
+                            break;
+                    }
+
                     recycler_view2.addItemDecoration(new DividerItemDecoration(MainActivity.this, LinearLayoutManager.VERTICAL));
                     adapterchild = new CopMyAdapterChild(coplistdatachild, MainActivity.this);
                     recycler_view2.setAdapter(adapterchild);
-                    recycler_view2.setVisibility(recycler_view2.VISIBLE);
+                    recycler_view2.setVisibility(View.VISIBLE);
                 }
             }//onclick
         });
 
 
         recyclerView.setAdapter(adapter);
-        recyclerView.setVisibility(recyclerView.VISIBLE);
+        recyclerView.setVisibility(View.VISIBLE);
 
     }
+
+    /*class MyTask extends AsyncTask<String,Void,String>
+    {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+
+        @Override
+        protected Void doInBackground(String... params) {
+
+            CopData cp =new CopData();
+            coplistdata = cp.LoadDataCopButton(String.valueOf(params));
+
+
+        }
+
+
+
+
+        @Override
+        protected void onPostExecute(final String FC) {
+
+            adapter = new CopMyAdapterMain((OnClickListener) this, coplistdata, new CopMyAdapterMain.OnCopClickListner() {
+                @Override
+                public void onClicked(CopListdata copchild) {
+                    int img = (copchild).getImageId();
+                    boolean isCheck = SelectKeep.IsChecked(img);
+                    if (!isCheck) {
+                        String fooditem2 =FC.trim() + "_" + copchild.get_itemname().trim();
+                        // TODO : Update your another adapter of another recyclerview.
+                        recycler_view2 = findViewById(R.id.recycler_view2);
+                        recycler_view2.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                        recycler_view2.setHasFixedSize(true);
+                        recycler_view2.bringToFront();
+
+                        String but= btnFoodClass.substring(btnFoodClass.length() - 2);
+                        switch (but) {
+                            case ("26"):
+                            case ("31"):
+                            case ("41"):
+                            case ("42"):
+                            case ("43"):
+                            case ("44"):
+                            case ("45"):
+                                coplistdatachild = CopDataSub2.LoadDataCopChildButton2(fooditem2);
+                                break;
+                            default:
+                                coplistdatachild = CopDataSub.LoadDataCopChildButton(fooditem2);
+                                break;
+                        }
+
+                        recycler_view2.addItemDecoration(new DividerItemDecoration(MainActivity.this, LinearLayoutManager.VERTICAL));
+                        adapterchild = new CopMyAdapterChild(coplistdatachild, MainActivity.this);
+                        recycler_view2.setAdapter(adapterchild);
+                        recycler_view2.setVisibility(View.VISIBLE);
+                    }
+                }//onclick
+            });
+
+            recyclerView.setAdapter(adapter);
+            recyclerView.setVisibility(View.VISIBLE);
+
+        }
+        }
+*/
+
+
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
           switch (ev.getActionMasked()) {
             case MotionEvent.ACTION_DOWN:
                 Log.d(TAG, "Activity dispatchTouchEvent DOWN");
+
                 break;
             case MotionEvent.ACTION_MOVE:
                 Log.d(TAG, "Activity dispatchTouchEvent MOVE");
+
                 break;
             case MotionEvent.ACTION_UP:
                 Log.d(TAG, "Activity dispatchTouchEvent UP");
@@ -480,7 +634,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         }
         boolean b = super.dispatchTouchEvent(ev);
         Log.d(TAG, "Activity dispatchTouchEvent RETURNS " + b);
-        if (b == false ) {
+        if (!b ) {
             Log.d(TAG, "False is returned hide all recycler views" + b);
             if(ev.getActionMasked()==MotionEvent.ACTION_UP){
                 String bclick="none";
@@ -508,6 +662,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         switch (event.getActionMasked()) {
            case MotionEvent.ACTION_DOWN:
                 Log.d(TAG, "Activity onTouch DOWN");
+
                 break;
             case MotionEvent.ACTION_MOVE:
                 Log.d(TAG, "Activity onTouch MOVE");
@@ -547,14 +702,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         cartList = state.getParcelableArrayList(LIST_STATE_KEY_CART);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (listState != null ) {
-            recyclerViewMenu.getLayoutManager().onRestoreInstanceState(listState);
-            //cartList = onRestoreInstanceState(stat);
-        }
-         }
+
 
     private void looprecycleview(String beforeclick,String afterclick,String buttontouch) {
         LayoutCustom layoutMyLayout;
@@ -565,25 +713,25 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         switch (buttontouch){
             case "false":
                 if(recyclertouch=="false"){
-                    if (((layoutMyLayout != null) && (recycler_view2 != null) && (recycler_view2.getVisibility() == recycler_view2.VISIBLE))) {
-                        recycler_view2.setVisibility(recycler_view2.INVISIBLE);
+                    if (((layoutMyLayout != null) && (recycler_view2 != null) && (recycler_view2.getVisibility() == View.VISIBLE))) {
+                        recycler_view2.setVisibility(View.INVISIBLE);
                     }else
                     {
-                    if (((layoutMyLayout != null) && (recyclerView != null) && (recyclerView.getVisibility() == recyclerView.VISIBLE))) {
-                       recyclerView.setVisibility(recyclerView.INVISIBLE);
+                    if (((layoutMyLayout != null) && (recyclerView != null) && (recyclerView.getVisibility() == View.VISIBLE))) {
+                       recyclerView.setVisibility(View.INVISIBLE);
                     }}
                 }
                 break;
             case "true":
                 if(beforeclick!=afterclick && afterclick!="Reset")
                 {
-                    if ((layoutMyLayout != null) && (recycler_view2 != null) && (recycler_view2.getVisibility() == recycler_view2.VISIBLE)) {
-                        recycler_view2.setVisibility(recycler_view2.INVISIBLE);
+                    if ((layoutMyLayout != null) && (recycler_view2 != null) && (recycler_view2.getVisibility() == View.VISIBLE)) {
+                        recycler_view2.setVisibility(View.INVISIBLE);
                     }
-                    if ((recyclerView != null) && (recyclerView.getVisibility() == recyclerView.VISIBLE)){
-                        recyclerView.setVisibility(recyclerView.INVISIBLE);
+                    if ((recyclerView != null) && (recyclerView.getVisibility() == View.VISIBLE)){
+                        recyclerView.setVisibility(View.INVISIBLE);
                         g.setRecyclertouch(GlobalVariables.FALSE);
-                    };
+                    }
                 }
                 g.setCurrentclick(g.getJustclicked());
                 g.setButtontouch(GlobalVariables.FALSE);
@@ -591,99 +739,99 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         }
     }
 
-    //@SuppressLint("WrongCall")
-    //(List<LineView> mlines)
-    public void drawLines(List<LineView> mlinesToDraw) {
-        String btn1,btn11,btn2,btn22,btnprefix;
-        int startIndex1,endIndex1,startIndex2,endIndex2;
-        float centerXOnImage1;
-        double centerYOnImage1;
-        float centerXOfImageOnScreen1;
-        double centerYOfImageOnScreen1;
-        float centerXOnImage2;
-        double centerYOnImage2;
-        float centerXOfImageOnScreen2;
-        double centerYOfImageOnScreen2;
-        int actionBarHeight;
 
+ /*   public void drawLines(List<LineView> mlinesToDraw) {
+        int startIndex1, endIndex1, startIndex2, endIndex2;
+        startIndex1 = 8;
+        endIndex1 = 10;
+        startIndex2 = 10;
+        endIndex2 = 12;
+        String btn1, btn11, btn2, btn22, btnprefix;
 
+        int mStartX = -1;
+        int mStartY = -1;
+        int mXOffset = -1;
+        int mYOffset = -1;
+        final int[] mCoords = new int[2];
 
-        startIndex1=8;
-        endIndex1=10;
-        startIndex2=10;
-        endIndex2=12;
-        btnprefix="btnx";
+        btnprefix = "btnx";
+        //final LineView line = new LineView(this);
+        for (int i = 0; i < mlinesToDraw.size(); i++) {
 
-        // Calculate ActionBar height
-        actionBarHeight=gactionbarheight();
-
-        for (int i = 0; i < mlinesToDraw.size(); i++)
-             {
-                int lineID= mlinesToDraw.get(i).getId();
-            String linename= getResources().getResourceEntryName(lineID);
+            int lineID = mlinesToDraw.get(i).getId();
+            String linename = getResources().getResourceEntryName(lineID);
             btn1 = linename.substring(startIndex1, endIndex1);
             btn2 = linename.substring(startIndex2, endIndex2);
 
-           btn11=btnprefix+btn1;
-           Button vBtn1=vars.get(btn11);
-           btn22=btnprefix+btn2;
-           Button vBtn2=vars.get(btn22);
+            btn11 = btnprefix + btn1;
+            Button vBtn1 = vars.get(btn11);
+            btn22 = btnprefix + btn2;
+            Button vBtn2 = vars.get(btn22);
 
-           centerXOnImage1=vBtn1.getWidth()/2;
-           centerYOnImage1=(vBtn1.getHeight()-actionBarHeight)/2;
-           centerXOfImageOnScreen1=vBtn1.getLeft()+centerXOnImage1;
-           centerYOfImageOnScreen1=vBtn1.getTop()+(centerYOnImage1);
+            vBtn1.getLocationOnScreen(mCoords);
+            mStartX = mCoords[0] + vBtn1.getWidth() / 2;
+            mStartY = (mCoords[1] - getstatusBarHeight()) + ((vBtn1.getHeight()) / 2);
 
-           centerXOnImage2=vBtn2.getWidth()/2;
-           centerYOnImage2=(vBtn2.getHeight()-actionBarHeight)/2;
-           centerXOfImageOnScreen2=vBtn2.getLeft()+centerXOnImage2;
-           centerYOfImageOnScreen2=vBtn2.getTop()+centerYOnImage2;
 
-            pointA=new PointF(centerXOfImageOnScreen1, (float) centerYOfImageOnScreen1);
-            pointB=new PointF(centerXOfImageOnScreen2,(float) centerYOfImageOnScreen2);
-
-            mLine.get(i).setPointA(pointA);
-            mLine.get(i).setPointB(pointB);
-            mLine.get(i).draw();
+            vBtn2.getLocationOnScreen(mCoords);
+            int endX = mCoords[0] + vBtn2.getWidth() / 2;
+            int endY = mCoords[1] - getstatusBarHeight() + (vBtn2.getHeight() / 2);
+            //line.setCoords(mStartX, mStartY, endX, endY);
+            mLine.get(i).setCoords(mStartX, mStartY, endX, endY);
+           // mLine.get(i).setPointA(pointA);
+            //mLine.get(i).setPointB(pointB);
+            //
         }
 
+    }*/
 
 
-
+    public int getstatusBarHeight () {
+        Rect rectangle = new Rect();
+        Window window = getWindow();
+        window.getDecorView().getWindowVisibleDisplayFrame(rectangle);
+        int statusBarHeight = rectangle.top;
+        return statusBarHeight;
     }
-    public void Cyclebuttons(ViewGroup parent) {
-       int abh=gactionbarheight();
-       ConstraintSet set = new ConstraintSet();
-       set.connect(btnx10.getId(), ConstraintSet.TOP,
-               ConstraintSet.PARENT_ID, ConstraintSet.TOP, gactionbarheight());
 
-       set.connect(btnx21.getId(), ConstraintSet.TOP,
-               ConstraintSet.PARENT_ID, ConstraintSet.TOP, gactionbarheight());
 
-       set.connect(btnx31.getId(), ConstraintSet.TOP,
-               ConstraintSet.PARENT_ID, ConstraintSet.TOP, gactionbarheight());
 
-       set.connect(btnx41.getId(), ConstraintSet.TOP,
-               ConstraintSet.PARENT_ID, ConstraintSet.TOP, gactionbarheight());
-   }
 
-    int gactionbarheight() {
-       // Calculate ActionBar height
-       TypedValue tv = new TypedValue();
-       int actionBarHeight = 0;
+    public boolean hasNavBar(Context context) {
+        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        Point realPoint = new Point();
+        Display display = wm.getDefaultDisplay();
+        display.getRealSize(realPoint);
+        DisplayMetrics metrics = new DisplayMetrics();
+        wm.getDefaultDisplay().getMetrics(metrics);
+        NavYpixel=metrics.widthPixels;
+        NavYreal=realPoint.x;
+        return metrics.heightPixels + metrics.widthPixels != realPoint.y + realPoint.x;
+    }
 
-       if (getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
-           actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data, getResources().getDisplayMetrics());
-       }
-       return actionBarHeight;
-   }
+    public static boolean isSystemBarOnBottom(Context context) {
+        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        Point realPoint = new Point();
+        Display display = wm.getDefaultDisplay();
+        display.getRealSize(realPoint);
+        DisplayMetrics metrics = new DisplayMetrics();
+        wm.getDefaultDisplay().getMetrics(metrics);
+        Configuration cfg = context.getResources().getConfiguration();
+        boolean canMove = (metrics.widthPixels != metrics.heightPixels &&
+                cfg.smallestScreenWidthDp < 600);
+        //int navbarwidth=
+        return (!canMove || metrics.widthPixels < metrics.heightPixels);
+    }
+
+
+
     public void repositionRv(String btnFoodClass ) {
         boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
         if (tabletSize) {
-            mConstraintLayout = (ConstraintLayout) findViewById(R.id.mylayoutcustom);
+            mConstraintLayout = findViewById(R.id.mylayoutcustom);
             mConstraintSetrecy1.clone(mConstraintLayout); // get constraints from ConstraintSet
             if ((btnFoodClass.equals("MainCOPbtn"))) {
-                mConstraintSetrecy1.connect(R.id.recycler_view, 6, R.id.MainCOPbtn, 7);
+                mConstraintSetrecy1.connect(R.id.recycler_view, 6, R.id.guideline7, 7);
             }
             if ((btnFoodClass.equals("btnx21"))
                     || (btnFoodClass.equals("btnx22"))
@@ -692,10 +840,10 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
                     || (btnFoodClass.equals("btnx25"))
                     || (btnFoodClass.equals("btnx26"))
                     || (btnFoodClass.equals("btnx27"))) {
-                mConstraintSetrecy1.connect(R.id.recycler_view, 6, R.id.x25, 7);
+                mConstraintSetrecy1.connect(R.id.recycler_view, 6, R.id.guideline8, 7);
             }
             if ((btnFoodClass.equals("btnx31"))) {
-                mConstraintSetrecy1.connect(R.id.recycler_view, 6, R.id.x31, 7);
+                mConstraintSetrecy1.connect(R.id.recycler_view, 6, R.id.guideline9, 7);
             }
 
             if ((btnFoodClass.equals("btnx41"))
@@ -705,11 +853,41 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
                     || (btnFoodClass.equals("btnx45"))
                     || (btnFoodClass.equals("btnx66"))
                     ) {
-                mConstraintSetrecy1.connect(R.id.recycler_view, 6, R.id.x31, 7);
+                mConstraintSetrecy1.connect(R.id.recycler_view, 6, R.id.guideline9, 7);
             }
 
             mConstraintSetrecy1.applyTo(mConstraintLayout);
         }
+        else
+        {  mConstraintLayout = findViewById(R.id.mylayoutcustom);
+            mConstraintSetrecy1.clone(mConstraintLayout); // get constraints from ConstraintSet
+            if ((btnFoodClass.equals("MainCOPbtn"))) {
+                mConstraintSetrecy1.connect(R.id.recycler_view, 6, R.id.guideline7, 7);
+            }
+            if ((btnFoodClass.equals("btnx21"))
+                    || (btnFoodClass.equals("btnx22"))
+                    || (btnFoodClass.equals("btnx23"))
+                    || (btnFoodClass.equals("btnx24"))
+                    || (btnFoodClass.equals("btnx25"))
+                    || (btnFoodClass.equals("btnx26"))
+                    || (btnFoodClass.equals("btnx27"))) {
+                mConstraintSetrecy1.connect(R.id.recycler_view, 6, R.id.guideline8, 7);
+            }
+            if ((btnFoodClass.equals("btnx31"))) {
+                mConstraintSetrecy1.connect(R.id.recycler_view, 6, R.id.guideline9, 7);
+            }
+
+            if ((btnFoodClass.equals("btnx41"))
+                    || (btnFoodClass.equals("btnx42"))
+                    || (btnFoodClass.equals("btnx43"))
+                    || (btnFoodClass.equals("btnx44"))
+                    || (btnFoodClass.equals("btnx45"))
+                    || (btnFoodClass.equals("btnx66"))
+                    ) {
+                mConstraintSetrecy1.connect(R.id.recycler_view, 6, R.id.guideline9, 7);
+            }
+
+            mConstraintSetrecy1.applyTo(mConstraintLayout);}
         }
 
     public void emptyCart(View v) {
@@ -786,9 +964,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         else
         {
             for (String btext : templist) {
-                int blength=btext.toString().length();
-                String buttontext=btext.toString();
-                btextall = btextall + "\n" + buttontext;;
+                int blength= btext.length();
+                String buttontext= btext;
+                btextall = btextall + "\n" + buttontext;
                 x++;
             }
         }
@@ -798,9 +976,10 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         buttontext(context );
 
     }
-    public void addToList(String item,String Kcal,String fat,String cho,String pro,Context context) {
-        int pos=0;
-        cartList.add(new Item(item,"desc",Kcal,fat,cho,pro));
+
+    public void addToList(String itemcat, String item, String Kcal, String fat, String cho, String pro, Context context) {
+            int pos = 0;
+        cartList.add(new Item(itemcat,item,"desc",Kcal,fat,cho,pro));
         cartlistbuttonobjectque.add(g.getCurrentbutton());
 
         String btnidname=g.getCurrentbutton().getResources().getResourceEntryName(g.getCurrentbuttonID());
@@ -831,8 +1010,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         else
         {
             for (String btext : templist) {
-                int blength=btext.toString().length();
-                String buttontext=btext.toString();
+                int blength= btext.length();
+                String buttontext= btext;
                 if(x==0){btextall = btextall + buttontext;}
                 else {btextall = btextall + "\n" + buttontext;}
                 x++;
@@ -846,7 +1025,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     // **** change button text and background color based on selection ******
     public void buttontext(Context context){
         String textlocation="BUTTON";
-        SpannableStringBuilder builder=g.makeSectionOfTextBold(btextall,textlocation);
+        SpannableStringBuilder builder= Globals.makeSectionOfTextBold(btextall,textlocation);
         String checktext="The \nCenter of \nthe Plate";
         if(btnCurrentbaseName.equals(checktext))          //if current button is main button
             {
@@ -861,12 +1040,14 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
                 int colors[] = {Color.WHITE,0xffE29D57};  //orange
                // int colors[] = {0xffef9f44,Color.WHITE,0xffE29D57};
                 gradientDrawable.setColors(colors);
+                g.getCurrentbutton().setTextAppearance(R.style.MainButtonFontStyleSeleted);
             }
             else
             {   g.getCurrentbutton().setText(builder, TextView.BufferType.SPANNABLE);
                 int colors[] = {Color.WHITE,0xff579fe2};  //blue
               //  int colors[] = {0xff449DEF,Color.WHITE,0xff579fe2};
                 gradientDrawable.setColors(colors);
+                g.getCurrentbutton().setTextAppearance(R.style.MainButtonFontStyle);
             }
             g.getCurrentbutton().setBackground(layerDrawable);
             }
@@ -899,7 +1080,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         if (viewHolder instanceof CartListAdapter.MyViewHolder) {
             // get the removed item name to display it in snack bar
             Context context=getApplicationContext();
-            String name = cartList.get(viewHolder.getAdapterPosition()).getName();
+            String name = cartList.get(viewHolder.getAdapterPosition()).getname();
                 // backup of removed item for undo purpose
                 final Item deletedItem = cartList.get(viewHolder.getAdapterPosition());
                 final int deletedIndex = viewHolder.getAdapterPosition();
@@ -937,9 +1118,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
             else
             {
                 for (String btext : templist) {
-                    int blength=btext.toString().length();
-                    String buttontext=btext.toString();
-                    btextall = btextall + "\n" + buttontext;;
+                    int blength= btext.length();
+                    String buttontext= btext;
+                    btextall = btextall + "\n" + buttontext;
                     x++;
                 }
             }
@@ -947,24 +1128,12 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
             mAdapter.notifyDataSetChanged();
             btnCurrentbaseName=g.getBtnDefaulttext();
             buttontext(context );
-            if (( (this.recycler_view2 != null) && (recycler_view2.getVisibility() == this.recycler_view2.VISIBLE))) {
+            if (( (this.recycler_view2 != null) && (recycler_view2.getVisibility() == View.VISIBLE))) {
                 this.adapterchild.notifyDataSetChanged();}
             else
             {   this.adapter.notifyDataSetChanged();}
 
-                // showing snack bar with Undo option
-//                Snackbar snackbar = Snackbar.make(coordinatorLayout, name + " removed from cart!", Snackbar.LENGTH_LONG);
-//                snackbar.setAction("UNDO", new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//
-//                        // undo is selected, restore the deleted item
-//                        mAdapter.restoreItem(deletedItem, deletedIndex);
-//                    }
-//                });
-//                snackbar.setActionTextColor(Color.YELLOW);
-//                snackbar.show();
-        }
+         }
     }
 
     // Appbar tool bar inflate
@@ -1099,25 +1268,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     private void showBalanceDialog() {
        FragmentManager fm = getSupportFragmentManager();
        // dataFragment=(Fragment.SavedState);
-        fragmentSimple = BalanceOverlay.newInstance("Balance Overlay");
+        fragmentSimple = BalanceOverlay.newInstance("Balance Overlay");  //title for dialogfragment
         fragmentSimple.setRetainInstance(true);
         fragmentSimple.show(fm, "Balance");
 
     }
-
-
-   /* @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
-        // Save the user's current game state
-        savedInstanceState.put(STATE_SCORE, mCurrentScore);
-        savedInstanceState.putInt(STATE_LEVEL, mCurrentLevel);
-
-        // Always call the superclass so it can save the view hierarchy state
-        super.onSaveInstanceState(savedInstanceState);
-    }*/
-
-
-
 
     //onsaveInstanceState bundle
     @Override
@@ -1135,6 +1290,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         // Restore View's state here
         //cartList = (ArrayList<Item>) savedInstanceState.getParcelableArrayList("movieList");
     }
+
+
 
 }
 

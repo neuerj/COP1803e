@@ -5,15 +5,12 @@ package com.example.android.cop1803;
  */
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
-import android.view.View;
-import android.widget.Button;
 
 /**
  * Created by Windows on 07-01-2015.
@@ -36,7 +33,7 @@ public class LayoutCustom extends ConstraintLayout {
     public LayoutCustom(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-        init();
+       // init();
     }
     public void init(){
         paint=new Paint();
@@ -100,6 +97,7 @@ public class LayoutCustom extends ConstraintLayout {
         {
             case MotionEvent.ACTION_DOWN:
                 Log.d(TAG, "MyLayout onTouchEvent DOWN");
+                this.setPressed(true);
                 break;
             /*case MotionEvent.ACTION_MOVE:
                 Log.d(TAG, "MyLayout onTouchEvent MOVE");
@@ -118,11 +116,14 @@ public class LayoutCustom extends ConstraintLayout {
 
     }
 
-  /*  @Override
+  @Override
     protected void onDraw(Canvas canvas) {
-        paint.setColor(Color.GRAY);
-        canvas.drawRect(0, 0, getMeasuredWidth(), getMeasuredHeight(), paint);
-    }*/
+      g.SetMainWindowWidth(getWidth());
+  }
+
+
+}
+
 
 //    protected void onLayout(boolean changed, int l, int t, int r, int b) {
 //        // show current-1, current, current+1
@@ -139,5 +140,3 @@ public class LayoutCustom extends ConstraintLayout {
 //        this.scrollTo(getWidth(), 0);
 //
 //    }
-
-}

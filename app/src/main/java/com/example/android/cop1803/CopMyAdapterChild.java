@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.List;
@@ -142,6 +141,7 @@ public class CopMyAdapterChild extends RecyclerView.Adapter<CopMyAdapterChild.Vi
 
         foodgroup=g.getItemgroup();
         String SelectedItem=foodgroup + " : " + pos.get_itemname();
+        String selectedItemCat=pos.get_itemnamecat();
         String Kcal=pos.get_KCal();
         String fat= pos.get_Fat();
         String cho=pos.get_Cho();
@@ -187,7 +187,7 @@ public class CopMyAdapterChild extends RecyclerView.Adapter<CopMyAdapterChild.Vi
             }
             if (find==false){
                 Cselect = SelectedItem;
-                mMainActivit.addToList(SelectedItem,Kcal,fat,cho,pro,(Context) context);
+                mMainActivit.addToList(selectedItemCat,SelectedItem,Kcal,fat,cho,pro,(Context) context);
                 holder.itemView.setBackgroundColor(Color.CYAN);
                 holder.imageExpand.setVisibility(View.VISIBLE);
                 //mMainActivit.buttontext((Context) context);

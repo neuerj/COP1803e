@@ -3,14 +3,10 @@ package com.example.android.cop1803;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.Typeface;
-import android.media.Image;
-import android.support.annotation.VisibleForTesting;
 import android.support.constraint.ConstraintLayout;
+import android.support.v4.widget.TextViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableStringBuilder;
-import android.text.style.RelativeSizeSpan;
-import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
-import java.util.Locale;
 
 //import java.util.ArrayList;
 
@@ -30,33 +25,28 @@ import java.util.Locale;
 public class CopMyAdapterMain extends RecyclerView.Adapter<CopMyAdapterMain.ViewHolder> {
 
     //public ArrayList<String> MSelectedItems = new ArrayList<String>();
-    public Image img;
-
     List<CopListdata> copitems;
+    private int mSelectedItemPosition = -1;
     View.OnClickListener context;
-    Globals g =Globals.getInstance();
+    Globals g = Globals.getInstance();
     MainActivity mMainActivit = new MainActivity();
     String Cselect;
-    Button Cbutton;
-String SelectedItem;
-    private  final OnCopClickListner onCopClickListner;
+    String SelectedItem;
+    private final OnCopClickListner onCopClickListner;
 
-    private String flaged=g.getIsToogleflagon();
-
-    public interface OnCopClickListner{
+    public interface OnCopClickListner {
         void onClicked(CopListdata copchild);
     }
 
     public CopMyAdapterMain(View.OnClickListener activity, List<CopListdata> copitems, OnCopClickListner onCopClickListner) {
         this.copitems = copitems;
-        context=activity;
-        this.onCopClickListner=onCopClickListner;
+        context = activity;
+        this.onCopClickListner = onCopClickListner;
 
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, final int viewType) {
-
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recylerview_main, parent, false);
         ViewHolder vh = new ViewHolder(v);
         return vh;
@@ -64,114 +54,82 @@ String SelectedItem;
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-//        final CopListdata coplistdata ;
-      //  if (MSelectedItems.size()==0)  {MSelectedItems.add("start");}
-      //  if (GlobalVariables.MSelectedItems.size()==0)  {GlobalVariables.MSelectedItems.add("start");}
+        holder.bindDataWithViewHolder(copitems.get(position),position);
 
-     //   if (MSelectedItems.size()>0)  {holder.getAdapterPosition();}
+        holder.coplistdata = copitems.get(position);
+        String text = holder.coplistdata.get_itemname();
 
-        holder.coplistdata=copitems.get(position);
-       String text=holder.coplistdata.get_itemname();
-       String textlocation="RV";
-        SpannableStringBuilder builder=g.makeSectionOfTextBold(text,textlocation);
-       holder.fooditem.setText(builder, TextView.BufferType.SPANNABLE);
-       holder.imageExpandm.setImageResource(holder.coplistdata.getImageId());
+        String textlocation = "RV";
+        SpannableStringBuilder builder = g.makeSectionOfTextBold(text, textlocation);
+        holder.fooditem.setText(builder, TextView.BufferType.SPANNABLE);
+        holder.imageExpandm.setImageResource(holder.coplistdata.getImageId());
 
 
-        if (flaged==GlobalVariables.TRUE) {
-            int img=holder.coplistdata.getImageId();
-            boolean isCheck= SelectKeep.IsChecked(img);
-            holder.itemView.setBackgroundColor(Color.WHITE);
-            if (isCheck){holder.imageExpandm.setVisibility(View.INVISIBLE);}
-             }
-        else {
-            int img=holder.coplistdata.getImageId();
-            SelectedItem=holder.coplistdata.get_itemname();
-            boolean isCheck= SelectKeep.IsChecked(img);
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //     final CopListdata coplistdata ;
+                    CopListdata pos = copitems.get(holder.getAdapterPosition());
+                    onCopClickListner.onClicked(pos);
+                    markUnmark(holder, pos);
+                    TextView slidetodeletemsg = (TextView) ((Activity) context).findViewById(R.id.textView2);
+                    Button ResetBtn = ((Activity) context).findViewById(R.id.ResetBtn);
 
-            if(isCheck) {
-                for (int i = 0; i < mMainActivit.cartList.size(); i++) {
-                     Cselect= mMainActivit.cartList.get(i).name;
-                    if (Cselect.equals(SelectedItem)) {
-                        holder.itemView.setBackgroundColor(Color.CYAN);
-                        holder.imageExpandm.setVisibility(View.VISIBLE);
-                    break;
-                         }
-                    else {
-                        holder.itemView.setBackgroundColor(Color.WHITE);
-                        holder.imageExpandm.setVisibility(View.INVISIBLE);
-                         }
+                    if (mMainActivit.cartList.size() >= 2) {
+                        slidetodeletemsg.setVisibility(View.VISIBLE);
+                        ResetBtn.setVisibility(View.VISIBLE);
+                    } else {
+                        slidetodeletemsg.setVisibility(View.INVISIBLE);
+                        ResetBtn.setVisibility(View.INVISIBLE);
+                    }
                 }
-            }
+            });
 
-        }
 
-       holder.itemView.setOnClickListener(new View.OnClickListener()
-       {
-            @Override
-            public void onClick(View view)
-            {
-           //     final CopListdata coplistdata ;
-                CopListdata pos=copitems.get(holder.getAdapterPosition());
-                onCopClickListner.onClicked(pos);
-                markUnmark(holder,pos);
-                TextView slidetodeletemsg = (TextView) ((Activity)context).findViewById(R.id.textView2);
-                Button ResetBtn=((Activity)context).findViewById(R.id.ResetBtn);
-
-                if(mMainActivit.cartList.size()>=2){
-                    slidetodeletemsg.setVisibility(View.VISIBLE);
-                    ResetBtn.setVisibility(View.VISIBLE);
-                }
-                else {
-                    slidetodeletemsg.setVisibility(View.INVISIBLE);
-                    ResetBtn.setVisibility(View.INVISIBLE);
-                }
-            }
-       });
     }
 
 
-    public  void markUnmark(ViewHolder holder,  CopListdata pos) {
+    public void markUnmark(ViewHolder holder, CopListdata pos) {
 
-        int img=pos.getImageId();
-        String SelectedItem=pos.get_itemname();
+        int img = pos.getImageId();
+        String SelectedItem = pos.get_itemname();
         g.setItemgroup(SelectedItem);
-        String Kcal=pos.get_KCal();
-        String fat= pos.get_Fat();
-        String cho=pos.get_Cho();
-        String pro=pos.get_Pro();
-        boolean isCheck= SelectKeep.IsChecked(img);  //if true main level item false: sub level item
+        String selectedItemCat = pos.get_itemnamecat();
+        String Kcal = pos.get_KCal();
+        String fat = pos.get_Fat();
+        String cho = pos.get_Cho();
+        String pro = pos.get_Pro();
+        boolean isCheck = SelectKeep.IsChecked(img);  //if true main level item false: sub level item
 
 
 //************************
-        if(isCheck) {
-            int cnt=0;
-            boolean find=false;
+        if (isCheck) {
+            int cnt = 0;
+            boolean find = false;
             for (int i = 0; i < mMainActivit.cartList.size(); i++) {
-                 Cselect=mMainActivit.cartList.get(i).name;
-                  if (Cselect.trim().equals(SelectedItem.trim())) {
-                    find=true;
+                Cselect = mMainActivit.cartList.get(i).name;
+                if (Cselect.trim().equals(SelectedItem.trim())) {
+                    find = true;
                     mMainActivit.removeFromList(i, (Context) context);
                     holder.itemView.setBackgroundColor(Color.WHITE);
                     holder.imageExpandm.setVisibility(View.INVISIBLE);
-                   // MainActivity.updateuserlist(Cselect);
+                    // MainActivity.updateuserlist(Cselect);
                     break;
                 }
             }
-            if (find==false){
+            if (find == false) {
                 Cselect = SelectedItem;
-                    mMainActivit.addToList(Cselect, Kcal, fat, cho, pro,(Context) context);
-                    holder.itemView.setBackgroundColor(Color.CYAN);
-                    holder.imageExpandm.setVisibility(View.VISIBLE);
-                 }
+                mMainActivit.addToList(selectedItemCat, Cselect, Kcal, fat, cho, pro, (Context) context);
+                holder.itemView.setBackgroundColor(Color.CYAN);
+                holder.imageExpandm.setVisibility(View.VISIBLE);
+            }
         }
-      //*************
-        else{
+        //*************
+        else {
             g.setItemgroup(SelectedItem);
         }
-          //  mMainActivit.buttontext((Context) context);
+        //  mMainActivit.buttontext((Context) context);
     }
-
 
 
     @Override
@@ -187,6 +145,8 @@ String SelectedItem;
         public TextView Cholesterol;
         public TextView fat;
         public TextView protein;
+        private CopListdata mDataItem=null;
+
 
         public ConstraintLayout constraintLayout;
         public ImageView imageExpandm;
@@ -200,12 +160,64 @@ String SelectedItem;
             Cholesterol = (TextView) itemView.findViewById(R.id.Cholestrol);
             fat = (TextView) itemView.findViewById(R.id.Fats);
             protein = (TextView) itemView.findViewById(R.id.Protein);
-            constraintLayout=(ConstraintLayout) itemView.findViewById(R.id.recyclerlayout);
+            constraintLayout = (ConstraintLayout) itemView.findViewById(R.id.recyclerlayout);
+
+            //int previousSelectState=mSelectedItemPosition;
+            mSelectedItemPosition =getAdapterPosition();
         }
+
+        //This is clean method to bind data with viewHolder. Do all dirty things on View based on dataItem.
+        //Must be called from onBindViewHolder(),with dataItem. In our case dataItem is String object.
+        public void bindDataWithViewHolder(CopListdata dataItem, int currentPosition){
+            this.mDataItem=dataItem;
+            boolean isCheck=true;
+
+            boolean isHeader = SelectKeep.IsHeader(dataItem.get_itemname());
+           // int img = coplistdata.getImageId();
+            int img = dataItem.getImageId();
+            isCheck = SelectKeep.IsChecked(img);
+          //  if(currentPosition == mSelectedItemPosition){
+            if (isHeader) {
+                itemView.setBackgroundColor(Color.LTGRAY);  //is a header record
+                fooditem.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                fooditem.setTextAppearance(R.style.cartlistmenu);
+                imageExpandm.setVisibility(View.INVISIBLE);
+            } else {
+                itemView.setBackgroundColor(Color.WHITE);  //not a header record
+                TextViewCompat.setTextAppearance(fooditem, R.style.RVtextviewformat);
+                fooditem.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
+                if (isCheck) {
+                    imageExpandm.setVisibility(View.INVISIBLE);
+                } else {
+                    imageExpandm.setVisibility(View.VISIBLE);
+                }
+            }
+
+            SelectedItem = dataItem.get_itemname();
+            if (isCheck) {
+                for (int i = 0; i < mMainActivit.cartList.size(); i++) {
+                    Cselect = mMainActivit.cartList.get(i).name;
+                    if (Cselect.equals(SelectedItem)) {
+                        itemView.setBackgroundColor(Color.CYAN);
+                        imageExpandm.setVisibility(View.VISIBLE);
+                        break;
+                    } else {
+                        itemView.setBackgroundColor(Color.WHITE);
+                        imageExpandm.setVisibility(View.INVISIBLE);
+                    }
+                }
+            }
+        }
+
     }
 
+         //   }
 
 }
+
+
+
+
 
 
  /* if(isCheck) {

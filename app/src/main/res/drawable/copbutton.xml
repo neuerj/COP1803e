@@ -1,14 +1,17 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
+
     android:shape="oval">
+
     <gradient
-        android:angle="270"
-        android:centerX="35%"
+        android:angle="315"
+        android:centerX="0%"
         android:centerColor="@color/GradientCenter"
         android:startColor="@color/GradientStart"
         android:endColor="@color/GradientEnd"
-        android:type="linear" />
+        android:type="linear"/>
     <size
-        android:width="80dp"
-        android:height="80dp" />
+        android:width="@dimen/layoutwidthcopbutton"
+        android:height="@dimen/layoutheightcopbutton"
+        />
 
 </shape>

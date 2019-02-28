@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:tag="FoodMenuTag"
+    android:id="@+id/scroll"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="@drawable/retina_wood"
+    tools:context="com.example.android.cop1803.MainActivity">
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="1184dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/MarginTop_PDF_dividers"
+        android:layout_marginBottom="@dimen/MarginTop_PDF_dividers"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kCal"
+        tools:layout_editor_absoluteX="8dp" />
+
+    <com.example.android.cop1803.MyRecyclerView
+        android:id="@+id/recycler_menuview"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:scrollbars="vertical"
+        app:layout_constraintVertical_bias="0.01"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider3" />
+
+
+    <include
+        android:id="@+id/backbutton"
+        layout="@layout/backbutton"
+        android:layout_width="@dimen/Width_PDF_Maincopbutton"
+        android:layout_height="@dimen/Height_PDF_Maincopbutton"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintEnd_toStartOf="@+id/SharePDF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.example.android.cop1803.MyViewbutton
+        android:id="@+id/SharePDF"
+        android:layout_width="@dimen/Width_PDF_Maincopbutton"
+        android:layout_height="@dimen/Height_PDF_Maincopbutton"
+        android:layout_marginStart="@dimen/MarginStart_PDF_Maincopbutton"
+        android:layout_marginTop="@dimen/MarginTop_PDF_Maincopbutton"
+        android:background="@drawable/shapecopmainbuttondialogmenu"
+        android:text="@string/SendPDF"
+        android:textAppearance="@style/MainButtonFontStyle"
+        app:layout_constraintBottom_toTopOf="@id/divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+    </com.example.android.cop1803.MyViewbutton>
+
+
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/MarginTop_PDF_dividers"
+        android:layout_marginBottom="@dimen/MarginTop_PDF_dividers"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.20"
+
+        />
+
+    <TextView
+        android:id="@+id/todaysspecial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/cartlist_margin_start"
+        android:layout_marginTop="@dimen/MarginTop_PDF_TodaysSpecial"
+        android:text="@string/Today_Special"
+        android:textAlignment="textStart"
+        android:textAppearance="@style/Todays_Special"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider" />
+    <!--app:layout_constraintTop_toBottomOf="@id/recycler_viewItemList" -->
+
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="1184dp"
+        android:layout_height="4dp"
+        android:layout_marginTop="@dimen/MarginTop_PDF_dividers"
+        android:layout_marginBottom="@dimen/MarginTop_PDF_dividers"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/todaysspecial" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".62" />
+
+    <TextView
+        android:id="@+id/kCal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/Marginstart_PDF_Nutrients"
+        android:layout_marginTop="@dimen/Margintop_PDF_Nutrients"
+        android:layout_marginEnd="@dimen/Marginend_PDF_Nutrients"
+        android:layout_marginBottom="@dimen/Marginbottom_PDF_Nutrients"
+        android:text="@string/kCal"
+        android:textAlignment="center"
+        android:textAppearance="@style/Nutrients"
+        app:layout_constraintStart_toEndOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+
+    <TextView
+        android:id="@+id/Fat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/Marginstart_PDF_Nutrients"
+        android:layout_marginTop="@dimen/Margintop_PDF_Nutrients"
+        android:layout_marginEnd="@dimen/Marginend_PDF_Nutrients"
+        android:layout_marginBottom="@dimen/Marginbottom_PDF_Nutrients"
+        android:text="@string/Fat"
+        android:textAlignment="center"
+        android:textAppearance="@style/Nutrients"
+        app:layout_constraintStart_toEndOf="@+id/kCal"
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+    <TextView
+        android:id="@+id/Cho"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/Marginstart_PDF_Nutrients"
+        android:layout_marginTop="@dimen/Margintop_PDF_Nutrients"
+        android:layout_marginEnd="@dimen/Marginend_PDF_Nutrients"
+        android:layout_marginBottom="@dimen/Marginbottom_PDF_Nutrients"
+        android:text="@string/Chol"
+        android:textAlignment="center"
+        android:textAppearance="@style/Nutrients"
+        app:layout_constraintStart_toEndOf="@+id/Fat"
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+    <TextView
+        android:id="@+id/Pro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/Marginstart_PDF_Nutrients"
+        android:layout_marginTop="@dimen/Margintop_PDF_Nutrients"
+        android:layout_marginEnd="@dimen/Marginend_PDF_Nutrients"
+        android:layout_marginBottom="@dimen/Marginbottom_PDF_Nutrients"
+        android:text="@string/Pro"
+        android:textAlignment="center"
+        android:textAppearance="@style/Nutrients"
+        app:layout_constraintStart_toEndOf="@+id/Cho"
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="289dp" />
+
+
+</android.support.constraint.ConstraintLayout>

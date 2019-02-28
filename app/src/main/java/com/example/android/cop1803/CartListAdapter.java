@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -25,14 +26,16 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.MyView
     MainActivity mMainActivit = new MainActivity();
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView name, description,slidetodeletemsg ;//, price;
+        public TextView name,namecat, description,slidetodeletemsg ;//, price;
         public ImageView thumbnail;
-        public RelativeLayout viewBackground, viewForeground;
+        public RelativeLayout viewBackground;
+        public LinearLayout viewForeground;
         public Item item;
 
         public MyViewHolder(View view) {
             super(view);
             name = view.findViewById(R.id.name);
+            namecat = view.findViewById(R.id.namecat);
           // description = view.findViewById(R.id.description);
           //price = view.findViewById(R.id.price);
           //  thumbnail = view.findViewById(R.id.thumbnail);
@@ -62,12 +65,16 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.MyView
     public void onBindViewHolder(MyViewHolder holder, final int position) {
         final Item item = cartList.get(position);
         holder.item=cartList.get(position);
-        String text=holder.item.getName();
+        String text=holder.item.getname();
 
         String textlocation="CARTLIST";
         SpannableStringBuilder builder=g.makeSectionOfTextBold(text,textlocation);
-
         holder.name.setText(builder, TextView.BufferType.SPANNABLE);
+
+        text = holder.item.getnamecat();
+        textlocation = "CARTLIST";
+        builder = g.makeSectionOfTextBold(text, textlocation);
+        holder.namecat.setText(builder, TextView.BufferType.SPANNABLE);
 
 //        String chkItem=item.getName();
 //        if((chkItem=="Today's Special" ) && (position>0)){mMainActivit.removeFromList(position);}
@@ -82,15 +89,19 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.MyView
             holder.name.setTextAppearance(R.style.cartlistmenu);
             holder.name.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
             holder.name.setBackgroundColor(Color.LTGRAY);
+            holder.namecat.setTextAppearance(R.style.cartlistmenu);
+            holder.namecat.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            holder.namecat.setBackgroundColor(Color.LTGRAY);
              }
 
           //  holder.description.setVisibility(View.INVISIBLE);
             else {
             holder.name.setTextAppearance(R.style.cartlist);
-            //holder.name.setBackgroundColor(R.style.cartlistmenu);
-            //holder.description.setVisibility(View.VISIBLE);
             holder.name.setPadding(30,0,0,0);
             holder.name.setBackgroundColor(Color.WHITE);
+            holder.namecat.setTextAppearance(R.style.cartlist);
+            holder.namecat.setPadding(30,0,0,0);
+            holder.namecat.setBackgroundColor(Color.WHITE);
         }
 
 

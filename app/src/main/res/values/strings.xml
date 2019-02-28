@@ -1,5 +1,8 @@
 <resources>
     <!--column 2 strings-->
+
+
+
     <string name="app_name">CenterOfThePlate</string>
     <string name="x11MainCOPtext">"The \nCenter of \nthe Plate"</string>
     <string name="x21BreadingCrustCoatingsWraps">"Breading Crust Coatings Wraps"</string>
@@ -9,9 +12,10 @@
     <string name="x25MarinadesandBrines">"Marinades and Brines"</string>
     <string name="x26SpicesandSpiceCrusts">"Spices and Spice Crusts"</string>
     <string name="x27Balance">"Balance"</string>
+
     <string name="x31CookingTechniques">"Cooking Techniques"</string>
     <string name="x41SaladsRelishes">"Salads Releshes"</string>
-    <string name="x42StarchesGrains">"Starches and Grains"</string>
+    <string name="x42StarchesGrains">"Starches and \nGrains"</string>
     <string name="x43Garnishes">"Garnishes"</string>
     <string name="x44SaucesSalsa">"Sauces Salsas"</string>
     <string name="x45VegetablesFruit">"Vegetables Fruit"</string>

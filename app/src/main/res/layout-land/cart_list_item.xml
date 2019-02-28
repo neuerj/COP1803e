@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-
+    android:orientation="horizontal"
+    android:weightSum="2"
     tools:ignore="ExtraText">
 
->
-
+    <!--android:weightSum="1"-->
     <RelativeLayout
         android:id="@+id/view_background"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/bg_row_background">
+        android:layout_width="match_parent"
+        android:layout_weight="2"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:background="@color/bg_row_background"
+        tools:ignore="Suspicious0dp">
 
         <ImageView
             android:id="@+id/delete_icon"
@@ -27,71 +31,50 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/ic_delete"
             android:layout_centerVertical="true"
             android:layout_marginEnd="@dimen/padd_10"
             android:layout_toStartOf="@id/delete_icon"
             android:text="@string/delete"
             android:textColor="#fff"
-            android:textSize="8sp" />
+            android:textSize="12sp" />
+
 
     </RelativeLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/view_foreground"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:weightSum="2"
         android:layout_height="wrap_content"
-
-        android:background="@android:color/white"
-        android:padding="@dimen/padd_5">
-
-
-        <!--<ImageView
+        android:orientation="horizontal"
+        android:gravity="bottom"
+        android:background="@color/bg_row_background">
 
 
-            android:id="@+id/thumbnail"
-            android:layout_width="@dimen/thumbnail"
-            android:layout_height="@dimen/thumbnail"
-            android:layout_marginEnd="@dimen/activity_padding_horizontal"
-            android:scaleType="centerCrop" /
-             android:fontFamily="sans-serif-medium"
-
-           >-->
 
         <TextView
             android:id="@+id/name"
-            android:layout_width="match_parent"
 
-            android:layout_height="@dimen/ic_delete"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:singleLine="false"
+            android:layout_weight="1"
             android:background="@color/description"
-            android:ellipsize="end"
             android:textColor="@color/item_name"
-            android:textSize="8sp"
-            />
+            android:textSize="12sp"/>
 
-
-
-        <!-- <
-        android:layout_height="wrap_content"
-        TextView
-            android:id="@+id/description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/name"
-            android:layout_marginTop="1dp"
-
-
-            />-->
- <!--
- android:textColor="@color/description"
         <TextView
-            android:id="@+id/price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toEndOf="@id/thumbnail"
-            android:textColor="@color/colorAccent"
-            android:textStyle="bold" />-->
+            android:id="@+id/namecat"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:padding="10dp"
 
-    </RelativeLayout>
-</FrameLayout>
+            android:layout_weight="1"
+            android:background="@color/description"
+            android:textColor="@color/item_name"
+            android:textSize="12sp"  />
+    </LinearLayout>
+
+</LinearLayout>
